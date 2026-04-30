@@ -34,7 +34,7 @@
                 <a href="{{ route('karya') }}" class="{{ request()->routeIs('karya') ? 'active' : '' }}">Karya</a>
                 <a href="{{ route('galeri') }}" class="{{ request()->routeIs('galeri') ? 'active' : '' }}">Galeri</a>
                 <a href="{{ route('kontak') }}" class="{{ request()->routeIs('kontak') ? 'active' : '' }}">Kontak</a>
-            </nav>
+            </div>
 
             <button class="hamburger" id="hamburger" aria-label="Menu">
                 <span></span>
