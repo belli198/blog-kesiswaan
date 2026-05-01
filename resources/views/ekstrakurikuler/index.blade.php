@@ -23,7 +23,7 @@
             <div class="card ekskul-card fade-up">
                 <div class="ekskul-icon">
                     @if($item->gambar)
-                        <img src="{{ asset('storage/'.$item->gambar) }}" alt="{{ $item->nama }}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+                        <img src="{{ Storage::url($item->gambar) }}" alt="{{ $item->nama }}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
                     @else
                         {{ substr($item->nama, 0, 1) }}
                     @endif

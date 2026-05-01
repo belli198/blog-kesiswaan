@@ -28,7 +28,7 @@
         <div class="grid-3">
             @forelse($berita ?? [] as $item)
             <div class="card fade-up">
-                <img src="{{ $item->gambar ? asset('storage/'.$item->gambar) : 'https://placehold.co/600x400/1B3A6B/white?text='.urlencode(Str::limit($item->judul,20)) }}" alt="{{ $item->judul }}" class="card-img">
+                <img src="{{ $item->gambar ? Storage::url($item->gambar) : 'https://placehold.co/600x400/1B3A6B/white?text='.urlencode(Str::limit($item->judul,20)) }}" alt="{{ $item->judul }}" class="card-img">
                 <div class="card-body">
                     <div class="card-meta">
                         <span class="badge badge-primary">{{ $item->kategori }}</span>
