@@ -22,7 +22,7 @@ class SejarahSekolahResource extends Resource
     
     protected static ?string $navigationLabel = '🏛️ Sejarah Sekolah';
     
-    protected static ?string $navigationGroup = 'Konten';
+    protected static \UnitEnum|string|null $navigationGroup = 'Konten';
 
     protected static ?string $recordTitleAttribute = 'judul';
 

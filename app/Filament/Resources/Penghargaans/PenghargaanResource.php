@@ -22,7 +22,7 @@ class PenghargaanResource extends Resource
     
     protected static ?string $navigationLabel = '🏆 Penghargaan Sekolah';
     
-    protected static ?string $navigationGroup = 'Konten';
+    protected static \UnitEnum|string|null $navigationGroup = 'Konten';
 
     protected static ?string $recordTitleAttribute = 'nama_penghargaan';
 
