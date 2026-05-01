@@ -1,15 +1,34 @@
 [phases.setup]
-nixPkgs = ["php82", "php82Extensions.pdo_mysql", "php82Extensions.mbstring", "php82Extensions.xml", "php82Extensions.tokenizer", "php82Extensions.ctype", "php82Extensions.fileinfo", "php82Extensions.curl", "php82Extensions.zip", "php82Extensions.bcmath", "php82Extensions.gd", "php82Extensions.intl", "composer"]
+nixPkgs = [
+    "php82",
+    "php82Extensions.pdo_mysql",
+    "php82Extensions.mbstring",
+    "php82Extensions.xml",
+    "php82Extensions.tokenizer",
+    "php82Extensions.ctype",
+    "php82Extensions.fileinfo",
+    "php82Extensions.curl",
+    "php82Extensions.zip",
+    "php82Extensions.bcmath",
+    "php82Extensions.gd",
+    "php82Extensions.intl",
+    "php82Extensions.dom",
+    "php82Extensions.iconv",
+    "php82Extensions.simplexml",
+    "php82Extensions.xmlwriter",
+    "php82Extensions.session",
+    "composer"
+]
 
 [phases.install]
-cmds = ["composer install --no-dev --optimize-autoloader --no-interaction"]
+cmds = ["composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-req=ext-intl"]
 
 [phases.build]
 cmds = [
-  "php artisan config:clear",
-  "php artisan config:cache",
-  "php artisan route:cache",
-  "php artisan view:cache"
+    "php artisan config:clear",
+    "php artisan config:cache",
+    "php artisan route:cache",
+    "php artisan view:cache"
 ]
 
 [start]
