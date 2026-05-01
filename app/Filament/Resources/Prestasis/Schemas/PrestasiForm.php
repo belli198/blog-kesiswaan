@@ -33,7 +33,7 @@ class PrestasiForm
                     ->required(),
                 TextInput::make('tahun')
                     ->required(),
-                \Filament\Forms\Components\FileUpload::make('gambar')->image()->directory('uploads')
+                \Filament\Forms\Components\FileUpload::make('gambar')->disk('cloudinary')->image()->directory('uploads')
                     ->default(null),
                 TextInput::make('kategori')
                     ->required()

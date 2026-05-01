@@ -21,7 +21,7 @@ class SejarahSekolahForm
                     ->label('Konten Sejarah')
                     ->required()
                     ->columnSpanFull(),
-                \Filament\Forms\Components\FileUpload::make('foto_gedung')
+                \Filament\Forms\Components\FileUpload::make('foto_gedung')->disk('cloudinary')
                     ->label('Foto Gedung (Opsional)')
                     ->image()
                     ->directory('sejarah')

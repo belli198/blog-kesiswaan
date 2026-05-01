@@ -46,7 +46,7 @@ class PenghargaanForm
                 \Filament\Forms\Components\Textarea::make('deskripsi')
                     ->label('Deskripsi Singkat')->nullable()->rows(3),
 
-                \Filament\Forms\Components\FileUpload::make('foto')
+                \Filament\Forms\Components\FileUpload::make('foto')->disk('cloudinary')
                     ->label('Foto Penghargaan / Sertifikat')
                     ->image()->directory('penghargaan')->nullable(),
 

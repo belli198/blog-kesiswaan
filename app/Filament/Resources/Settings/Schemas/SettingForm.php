@@ -20,7 +20,7 @@ class SettingForm
                     ->label('Kode Kunci')
                     ->disabled()
                     ->required(),
-                \Filament\Forms\Components\FileUpload::make('value')
+                \Filament\Forms\Components\FileUpload::make('value')->disk('cloudinary')
                     ->label('Upload Gambar (Bisa banyak untuk Slider)')
                     ->image()
                     ->multiple()

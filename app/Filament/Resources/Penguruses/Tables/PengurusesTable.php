@@ -20,7 +20,7 @@ class PengurusesTable
                     ->searchable(),
                 TextColumn::make('kategori')
                     ->badge(),
-                \Filament\Tables\Columns\ImageColumn::make('foto')
+                \Filament\Tables\Columns\ImageColumn::make('foto')->disk('cloudinary')
                     ->searchable(),
                 TextColumn::make('urutan')
                     ->numeric()

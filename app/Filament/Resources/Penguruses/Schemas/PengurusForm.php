@@ -20,7 +20,7 @@ class PengurusForm
                     ->options(['OSIS' => 'OSIS', 'Kesiswaan' => 'Kesiswaan'])
                     ->default('OSIS')
                     ->required(),
-                \Filament\Forms\Components\FileUpload::make('foto')
+                \Filament\Forms\Components\FileUpload::make('foto')->disk('cloudinary')
                     ->image()
                     ->directory('uploads')
                     ->default(null),

@@ -21,7 +21,7 @@ class KaryasTable
                     ->searchable(),
                 TextColumn::make('kelas')
                     ->searchable(),
-                \Filament\Tables\Columns\ImageColumn::make('gambar')
+                \Filament\Tables\Columns\ImageColumn::make('gambar')->disk('cloudinary')
                     ->searchable(),
                 TextColumn::make('kategori')
                     ->searchable(),

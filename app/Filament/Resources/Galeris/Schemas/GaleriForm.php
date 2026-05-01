@@ -18,7 +18,7 @@ class GaleriForm
                 Textarea::make('deskripsi')
                     ->default(null)
                     ->columnSpanFull(),
-                \Filament\Forms\Components\FileUpload::make('gambar')->image()->directory('uploads')
+                \Filament\Forms\Components\FileUpload::make('gambar')->disk('cloudinary')->image()->directory('uploads')
                     ->required(),
                 TextInput::make('kategori')
                     ->required()

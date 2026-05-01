@@ -16,7 +16,7 @@ class GalerisTable
             ->columns([
                 TextColumn::make('judul')
                     ->searchable(),
-                \Filament\Tables\Columns\ImageColumn::make('gambar')
+                \Filament\Tables\Columns\ImageColumn::make('gambar')->disk('cloudinary')
                     ->searchable(),
                 TextColumn::make('kategori')
                     ->searchable(),

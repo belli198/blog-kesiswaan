@@ -24,7 +24,7 @@ class BeritaForm
                 Textarea::make('ringkasan')
                     ->default(null)
                     ->columnSpanFull(),
-                \Filament\Forms\Components\FileUpload::make('gambar')->image()->directory('uploads')
+                \Filament\Forms\Components\FileUpload::make('gambar')->disk('cloudinary')->image()->directory('uploads')
                     ->default(null),
                 \Filament\Forms\Components\Select::make('kategori')
                     ->options([

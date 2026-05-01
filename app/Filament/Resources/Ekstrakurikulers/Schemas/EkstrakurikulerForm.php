@@ -24,7 +24,7 @@ class EkstrakurikulerForm
                     ->required(),
                 TextInput::make('tempat')
                     ->required(),
-                \Filament\Forms\Components\FileUpload::make('gambar')->image()->directory('uploads')
+                \Filament\Forms\Components\FileUpload::make('gambar')->disk('cloudinary')->image()->directory('uploads')
                     ->default(null),
                 TextInput::make('kategori')
                     ->required()

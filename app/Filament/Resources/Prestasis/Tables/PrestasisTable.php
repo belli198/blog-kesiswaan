@@ -21,7 +21,7 @@ class PrestasisTable
                 TextColumn::make('peraih')
                     ->searchable(),
                 TextColumn::make('tahun'),
-                \Filament\Tables\Columns\ImageColumn::make('gambar')
+                \Filament\Tables\Columns\ImageColumn::make('gambar')->disk('cloudinary')
                     ->searchable(),
                 TextColumn::make('kategori')
                     ->searchable(),

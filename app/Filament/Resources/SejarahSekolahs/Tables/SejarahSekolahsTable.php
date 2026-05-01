@@ -16,7 +16,7 @@ class SejarahSekolahsTable
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('judul')
                     ->searchable(),
-                \Filament\Tables\Columns\ImageColumn::make('foto_gedung'),
+                \Filament\Tables\Columns\ImageColumn::make('foto_gedung')->disk('cloudinary'),
                 \Filament\Tables\Columns\TextColumn::make('tahun_berdiri'),
                 \Filament\Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
