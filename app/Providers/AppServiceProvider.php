@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if (config('app.env') === 'production') {
-            $this->app['request']->server->set('HTTPS', true);
+            // Paksa semua link dan aset menggunakan HTTPS
             \Illuminate\Support\Facades\URL::forceScheme('https');
             \Illuminate\Support\Facades\URL::forceRootUrl(config('app.url'));
             
@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
                 'session.same_site' => 'lax',
                 'session.driver' => 'cookie',
                 'session.domain' => null,
+                'app.asset_url' => config('app.url'),
             ]);
 
             // Paksa Livewire menggunakan HTTPS

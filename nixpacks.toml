@@ -16,4 +16,4 @@ cmds = [
 ]
 
 [start]
-cmd = "php artisan migrate --force && php artisan db:seed --force && php artisan storage:link && php artisan optimize:clear && php -S 0.0.0.0:$PORT -t public"
+cmd = "php artisan migrate --force && php artisan db:seed --force && php artisan storage:link && php artisan optimize:clear && php artisan filament:assets && php artisan livewire:publish --assets && php -S 0.0.0.0:$PORT -t public"
