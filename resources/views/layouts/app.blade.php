@@ -19,7 +19,7 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <a href="{{ route('beranda') }}" class="navbar-brand">
-                <div class="brand-icon">SK</div>
+                <img src="{{ asset('images/logo-smk.png') }}" alt="Logo SMK Negeri 1 Adiwerna" class="brand-logo">
                 <span>{{ $siteName }}</span>
             </a>
 

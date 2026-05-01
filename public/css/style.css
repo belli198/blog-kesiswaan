@@ -62,7 +62,7 @@ h3{font-size:clamp(1.15rem,2.5vw,1.5rem)}
 .navbar.scrolled{background:rgba(15,33,64,.95);backdrop-filter:blur(20px);padding:10px 0;box-shadow:var(--shadow-lg)}
 .navbar .container{display:flex;align-items:center;justify-content:space-between}
 .navbar-brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.15rem;color:#fff}
-.navbar-brand .brand-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--primary-500),var(--accent));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;color:#fff}
+.brand-logo{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.2);background:#fff}
 .navbar-brand span{max-width:300px;line-height:1.2}
 .nav-links{display:flex;align-items:center;gap:6px}
 .nav-links a{color:rgba(255,255,255,.8);padding:8px 14px;border-radius:var(--radius-sm);font-size:.875rem;font-weight:500;transition:var(--transition);position:relative}
