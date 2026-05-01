@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if (config('app.env') === 'production') {
+            $this->app['request']->server->set('HTTPS', true);
             \Illuminate\Support\Facades\URL::forceScheme('https');
             \Illuminate\Support\Facades\URL::forceRootUrl(config('app.url'));
             
@@ -27,7 +28,8 @@ class AppServiceProvider extends ServiceProvider
             config([
                 'session.secure' => true,
                 'session.same_site' => 'lax',
-                'session.driver' => 'cookie', // Coba gunakan cookie driver untuk kestabilan maksimum
+                'session.driver' => 'cookie',
+                'session.domain' => null,
             ]);
         }
     }
