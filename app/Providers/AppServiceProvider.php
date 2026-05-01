@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
             // Paksa session agar aman dan sinkron
             config([
                 'session.secure' => true,
-                'session.same_site' => 'lax',
+                'session.same_site' => 'none',
                 'session.driver' => 'cookie',
                 'session.domain' => null,
             ]);
