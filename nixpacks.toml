@@ -6,16 +6,13 @@ cmds = ["composer install --no-dev --optimize-autoloader --no-interaction --igno
 
 [phases.build]
 cmds = [
-    "php artisan config:clear",
-    "php artisan route:clear",
-    "php artisan view:clear",
-    "php artisan filament:assets",
-    "php artisan livewire:publish --assets",
-    "mkdir -p public/vendor/livewire",
-    "cp public/vendor/livewire/livewire.js public/vendor/livewire/livewire.min.js || true",
     "mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache",
     "chmod -R 777 storage bootstrap/cache",
-    "php artisan storage:link"
+    "php artisan storage:link",
+    "php artisan filament:assets",
+    "php artisan config:clear",
+    "php artisan route:clear",
+    "php artisan view:clear"
 ]
 
 [start]

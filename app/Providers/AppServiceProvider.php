@@ -34,11 +34,6 @@ class AppServiceProvider extends ServiceProvider
                 'session.domain' => null,
                 'app.asset_url' => config('app.url'),
             ]);
-
-            // Paksa Livewire menggunakan HTTPS
-            \Livewire\Livewire::setUpdateRoute(function ($handle) {
-                return \Illuminate\Support\Facades\Route::post('/livewire/update', $handle);
-            });
         }
     }
 }
