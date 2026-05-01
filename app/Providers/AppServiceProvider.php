@@ -31,6 +31,11 @@ class AppServiceProvider extends ServiceProvider
                 'session.driver' => 'cookie',
                 'session.domain' => null,
             ]);
+
+            // Paksa Livewire menggunakan HTTPS
+            \Livewire\Livewire::setUpdateRoute(function ($handle) {
+                return \Illuminate\Support\Facades\Route::post('/livewire/update', $handle);
+            });
         }
     }
 }

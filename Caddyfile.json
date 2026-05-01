@@ -1,0 +1,49 @@
+{
+    "admin": {
+        "disabled": true
+    },
+    "logging": {},
+    "apps": {
+        "http": {
+            "servers": {
+                "srv0": {
+                    "listen": [
+                        ":{$PORT}"
+                    ],
+                    "routes": [
+                        {
+                            "handle": [
+                                {
+                                    "handler": "vars",
+                                    "root": "public"
+                                },
+                                {
+                                    "handler": "static_response",
+                                    "headers": {
+                                        "Server": [
+                                            "Caddy"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "handler": "reverse_proxy",
+                                    "transport": {
+                                        "protocol": "fastcgi",
+                                        "split_path": [
+                                            ".php"
+                                        ]
+                                    },
+                                    "upstreams": [
+                                        {
+                                            "dial": "127.0.0.1:9000"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
