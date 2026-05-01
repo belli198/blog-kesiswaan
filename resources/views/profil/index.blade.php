@@ -54,7 +54,7 @@
             @forelse($kesiswaan ?? [] as $k)
             <div class="org-card fade-up">
                 @if($k->foto)
-                    <img src="{{ Storage::url($k->foto) }}" alt="{{ $k->nama }}" class="org-photo" style="object-fit:cover">
+                    <img src="{{ Storage::disk('cloudinary')->url($k->foto) }}" alt="{{ $k->nama }}" class="org-photo" style="object-fit:cover">
                 @else
                     <img src="https://placehold.co/200x200/1B3A6B/white?text={{ urlencode(substr($k->nama,0,2)) }}" alt="{{ $k->nama }}" class="org-photo">
                 @endif
@@ -76,7 +76,7 @@
             @forelse($osis ?? [] as $o)
             <div class="org-card fade-up">
                 @if($o->foto)
-                    <img src="{{ Storage::url($o->foto) }}" alt="{{ $o->nama }}" class="org-photo" style="object-fit:cover">
+                    <img src="{{ Storage::disk('cloudinary')->url($o->foto) }}" alt="{{ $o->nama }}" class="org-photo" style="object-fit:cover">
                 @else
                     <img src="https://placehold.co/200x200/2563EB/white?text={{ urlencode(substr($o->nama,0,2)) }}" alt="{{ $o->nama }}" class="org-photo">
                 @endif
@@ -112,7 +112,7 @@
         <div class="grid-2 fade-up" style="align-items:center;gap:40px">
             <div>
                 @if($sejarah->foto_gedung)
-                    <img src="{{ Storage::url($sejarah->foto_gedung) }}" alt="Gedung SMK" style="width:100%;border-radius:15px;box-shadow:var(--shadow-lg)">
+                    <img src="{{ Storage::disk('cloudinary')->url($sejarah->foto_gedung) }}" alt="Gedung SMK" style="width:100%;border-radius:15px;box-shadow:var(--shadow-lg)">
                 @else
                     <div style="width:100%;height:300px;background:var(--surface-200);border-radius:15px;display:flex;align-items:center;justify-content:center;color:var(--text-secondary)">
                         <i class="fas fa-building" style="font-size:4rem"></i>
