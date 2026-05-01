@@ -21,6 +21,14 @@ class AppServiceProvider extends ServiceProvider
     {
         if (config('app.env') === 'production') {
             \Illuminate\Support\Facades\URL::forceScheme('https');
+            \Illuminate\Support\Facades\URL::forceRootUrl(config('app.url'));
+            
+            // Paksa session agar aman dan sinkron
+            config([
+                'session.secure' => true,
+                'session.same_site' => 'lax',
+                'session.driver' => 'cookie', // Coba gunakan cookie driver untuk kestabilan maksimum
+            ]);
         }
     }
 }
