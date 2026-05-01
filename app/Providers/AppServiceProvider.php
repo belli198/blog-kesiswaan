@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
             config([
                 'session.secure' => true,
                 'session.same_site' => 'lax',
-                'session.driver' => 'cookie',
+                'session.driver' => 'file',
                 'session.domain' => null,
             ]);
 
