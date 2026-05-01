@@ -13,7 +13,7 @@ return new class extends Migration
     {
         // Set all photo fields to null to prevent Cloudinary NotFoundException
         // since the local files were deleted due to ephemeral storage on Railway
-        \DB::table('pengurus')->update(['foto' => null]);
+        \DB::table('penguruses')->update(['foto' => null]);
         \DB::table('sejarah_sekolah')->update(['foto_gedung' => null]);
         \DB::table('penghargaan')->update(['foto' => null]);
         \DB::table('berita')->update(['gambar' => null]);
