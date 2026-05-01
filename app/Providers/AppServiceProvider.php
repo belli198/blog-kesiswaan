@@ -39,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
             \Livewire\Livewire::setUpdateRoute(function ($handle) {
                 return \Illuminate\Support\Facades\Route::post('/livewire/update', $handle);
             });
+            \Livewire\Livewire::setAssetUrl(config('app.url'));
         }
     }
 }
