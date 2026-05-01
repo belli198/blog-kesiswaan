@@ -10,28 +10,33 @@ window.addEventListener('scroll', () => {
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 const overlay = document.querySelector('.mobile-overlay');
+let scrollPos = 0;
+function openMenu() {
+    scrollPos = window.scrollY;
+    hamburger.classList.add('active');
+    navLinks.classList.add('active');
+    overlay && overlay.classList.add('active');
+    document.body.classList.add('menu-open');
+    document.body.style.top = `-${scrollPos}px`;
+}
+function closeMenu() {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    overlay && overlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    document.body.style.top = '';
+    window.scrollTo(0, scrollPos);
+}
 if (hamburger) {
     hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        overlay && overlay.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        navLinks.classList.contains('active') ? closeMenu() : openMenu();
     });
-    overlay && overlay.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    });
+    overlay && overlay.addEventListener('click', closeMenu);
     navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            overlay && overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', closeMenu);
     });
 }
+
 
 // ===== SCROLL ANIMATIONS =====
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
