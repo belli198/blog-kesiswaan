@@ -22,3 +22,13 @@ Route::get('/karya', [KaryaController::class, 'index'])->name('karya');
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 Route::post('/kontak', [KontakController::class, 'kirim'])->name('kontak.kirim');
+
+// Rute darurat untuk masuk ke admin (Hanya untuk testing)
+Route::get('/admin-bypass', function () {
+    $user = \App\Models\User::where('email', 'admin@smk.sch.id')->first();
+    if ($user) {
+        \Illuminate\Support\Facades\Auth::login($user);
+        return redirect('/admin');
+    }
+    return "User admin tidak ditemukan. Pastikan seeder sudah berjalan.";
+});
