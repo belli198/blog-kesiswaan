@@ -297,17 +297,18 @@ h3{font-size:clamp(1.15rem,2.5vw,1.5rem)}
   .hero{min-height:auto;padding:120px 0 60px}
   .hero-stats{gap:20px}
   .hero-stats .stat-number{font-size:1.5rem}
-  .nav-links{position:fixed;top:0;right:-100%;bottom:0;width:280px;background:var(--primary-900);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:100px 30px 40px;gap:15px;z-index:1001;transition:right .4s cubic-bezier(.4,0,.2,1);border-left:1px solid rgba(255,255,255,.1);display:flex;box-shadow:-5px 0 20px rgba(0,0,0,.5)}
+  .nav-links{position:fixed;top:0;right:-100%;bottom:0;width:280px;background:var(--primary-900);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:100px 30px 40px;gap:15px;z-index:1002;transition:right .4s cubic-bezier(.4,0,.2,1);border-left:1px solid rgba(255,255,255,.1);display:flex;box-shadow:-5px 0 20px rgba(0,0,0,.5)}
   .nav-links.active{right:0}
-  .nav-links a{font-size:1.1rem;padding:12px 0;width:100%;border-bottom:1px solid rgba(255,255,255,.05);border-radius:0;transition:color .3s}
+  .nav-links a{font-size:1.1rem;padding:12px 0;width:100%;border-bottom:1px solid rgba(255,255,255,.05);border-radius:0;transition:color .3s;pointer-events:all;position:relative;z-index:1}
   .nav-links a:hover,.nav-links a.active{background:none;color:var(--accent-light)}
   .nav-links a.active::after{display:none}
-  .hamburger{display:flex;z-index:1002;position:relative}
+  .hamburger{display:flex;z-index:1003;position:relative}
   .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,6px)}
   .hamburger.active span:nth-child(2){opacity:0}
   .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-6px)}
-  .mobile-overlay{display:block;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.6);opacity:0;visibility:hidden;transition:var(--transition);backdrop-filter:blur(3px)}
+  .mobile-overlay{display:block;position:fixed;inset:0;z-index:1001;background:rgba(0,0,0,.6);opacity:0;visibility:hidden;transition:var(--transition);backdrop-filter:blur(3px)}
   .mobile-overlay.active{opacity:1;visibility:visible}
+
   .footer-grid{grid-template-columns:1fr}
   .announce-card{flex-direction:column;gap:10px}
   .page-header{padding:120px 0 50px}
