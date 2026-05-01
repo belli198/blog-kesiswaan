@@ -12,8 +12,9 @@ cmds = [
     "php artisan filament:assets",
     "php artisan livewire:publish --assets",
     "mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache",
-    "chmod -R 777 storage bootstrap/cache"
+    "chmod -R 777 storage bootstrap/cache",
+    "php artisan storage:link"
 ]
 
 [start]
-cmd = "php artisan migrate --force && php artisan db:seed --force && php artisan storage:link && php artisan optimize:clear && php artisan filament:assets && php artisan livewire:publish --assets && php -S 0.0.0.0:$PORT -t public"
+cmd = "php artisan migrate --force && php artisan db:seed --force && php artisan optimize:clear && php artisan filament:assets && php artisan livewire:publish --assets && php -S 0.0.0.0:$PORT -t public"
