@@ -14,7 +14,10 @@ class ProfilController extends Controller
                         ->orderBy('tahun', 'desc')
                         ->get();
         $sejarah = \App\Models\SejarahSekolah::first();
+        $programSekolah = \App\Models\ProgramSekolah::where('is_aktif', true)
+                        ->orderBy('urutan')
+                        ->get();
 
-        return view('profil.index', compact('osis', 'kesiswaan', 'penghargaan', 'sejarah'));
+        return view('profil.index', compact('osis', 'kesiswaan', 'penghargaan', 'sejarah', 'programSekolah'));
     }
 }

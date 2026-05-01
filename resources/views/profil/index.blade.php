@@ -127,6 +127,28 @@
 </section>
 @endif
 
+{{-- PROGRAM UNGGULAN SEKOLAH --}}
+<section class="section" style="background:var(--surface-100)">
+    <div class="container">
+        <div class="section-header fade-up">
+            <h2>Program Unggulan Sekolah</h2>
+            <div class="line"></div>
+            <p>Program-program unggulan yang menjadi kebanggaan SMK Negeri 1 Adiwerna</p>
+        </div>
+        <div class="grid-3">
+            @forelse($programSekolah ?? [] as $prog)
+            <div class="fade-up" style="background:#fff;padding:25px 25px 25px 30px;border-radius:12px;box-shadow:var(--shadow-md);border-left:4px solid var(--primary-600);transition:transform 0.3s,box-shadow 0.3s;cursor:default">
+                <div style="font-size:2.2rem;margin-bottom:10px">{{ $prog->ikon ?? '📋' }}</div>
+                <h3 style="font-size:1.15rem;margin-bottom:8px;color:var(--text-primary)">{{ $prog->nama_program }}</h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7">{{ $prog->deskripsi }}</p>
+            </div>
+            @empty
+            <p style="grid-column:1/-1;text-align:center;color:var(--text-secondary)">Belum ada data program sekolah.</p>
+            @endforelse
+        </div>
+    </div>
+</section>
+
 {{-- PENGHARGAAN SEKOLAH --}}
 <section class="section" style="background:var(--surface-50)">
     <div class="container">

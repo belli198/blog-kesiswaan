@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             PenghargaanSeeder::class,
             SejarahSekolahSeeder::class,
+            ProgramSekolahSeeder::class,
         ]);
 
         // User::factory(10)->create();
