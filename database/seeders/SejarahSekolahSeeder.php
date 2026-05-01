@@ -22,10 +22,12 @@ class SejarahSekolahSeeder extends Seeder
 <p>Dengan semboyan "Disiplin, Kompeten, dan Religius", SMK Negeri 1 Adiwerna terus berkomitmen mencetak generasi muda yang tidak hanya unggul dalam hardskill teknik dan teknologi, tetapi juga dibekali dengan softskill, karakter kepemimpinan, dan nilai-nilai spiritual yang kuat, menjadikan mereka lulusan yang siap kerja, santun, dan mandiri.</p>
 EOT;
 
-        \App\Models\SejarahSekolah::create([
-            'judul' => 'Sejarah SMK Negeri 1 Adiwerna',
-            'konten' => $konten,
-            'tahun_berdiri' => 1969,
-        ]);
+        \App\Models\SejarahSekolah::firstOrCreate(
+            ['judul' => 'Sejarah SMK Negeri 1 Adiwerna'],
+            [
+                'konten' => $konten,
+                'tahun_berdiri' => 1969,
+            ]
+        );
     }
 }
