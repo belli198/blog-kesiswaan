@@ -31,6 +31,19 @@ class AppServiceProvider extends ServiceProvider
                 'session.driver' => 'cookie',
                 'session.domain' => null,
             ]);
+
+            // Cek dan buat user admin otomatis jika belum ada (Fallback)
+            try {
+                \App\Models\User::updateOrCreate(
+                    ['email' => 'admin@smk.sch.id'],
+                    [
+                        'name' => 'Administrator',
+                        'password' => \Illuminate\Support\Facades\Hash::make('password')
+                    ]
+                );
+            } catch (\Exception $e) {
+                // Abaikan jika database belum siap
+            }
         }
     }
 }
