@@ -18,8 +18,13 @@ class PesansTable
                 TextColumn::make('nama')
                     ->searchable(),
                 TextColumn::make('email')
-                    ->label('Email / Kelas')
-                    ->searchable(),
+                    ->label('Email')
+                    ->searchable()
+                    ->placeholder('-'),
+                TextColumn::make('kelas')
+                    ->label('Kelas')
+                    ->searchable()
+                    ->placeholder('-'),
                 TextColumn::make('subjek')
                     ->searchable(),
                 TextColumn::make('created_at')

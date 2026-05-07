@@ -64,16 +64,27 @@
                         </div>
                     @endif
 
+                    @if($errors->any())
+                        <div style="background:#FEE2E2;border:1px solid #FECACA;color:#991B1B;padding:12px 16px;border-radius:8px;margin-bottom:20px;font-size:0.9rem">
+                            ⚠️ {{ $errors->first() }}
+                        </div>
+                    @endif
+
                     <form action="{{ route('kontak.kirim') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="nama">Nama Lengkap</label>
-                            <input type="text" id="nama" name="nama" required placeholder="Contoh: Budi Santoso">
+                            <input type="text" id="nama" name="nama" required placeholder="Contoh: Budi Santoso" value="{{ old('nama') }}">
                         </div>
                         <div class="form-group">
-                            <label for="email">Alamat Email / Kelas</label>
-                            <input type="text" id="email" name="email" required placeholder="Email atau Kelas (jika siswa)">
+                            <label for="email">Alamat Email <span style="color:var(--text-secondary);font-weight:400;font-size:0.85rem">(opsional — untuk masyarakat umum)</span></label>
+                            <input type="email" id="email" name="email" placeholder="Contoh: budi@gmail.com" value="{{ old('email') }}">
                         </div>
+                        <div class="form-group">
+                            <label for="kelas">Kelas <span style="color:var(--text-secondary);font-weight:400;font-size:0.85rem">(opsional — untuk siswa)</span></label>
+                            <input type="text" id="kelas" name="kelas" placeholder="Contoh: XI RPL 1" value="{{ old('kelas') }}">
+                        </div>
+                        <p style="color:var(--text-secondary);font-size:0.8rem;margin:-10px 0 15px;font-style:italic">* Isi salah satu: Email atau Kelas</p>
                         <div class="form-group">
                             <label for="subjek">Subjek / Keperluan</label>
                             <select id="subjek" name="subjek" required>

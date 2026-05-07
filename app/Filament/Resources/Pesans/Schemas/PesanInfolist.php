@@ -13,7 +13,11 @@ class PesanInfolist
             ->components([
                 TextEntry::make('nama'),
                 TextEntry::make('email')
-                    ->label('Email address'),
+                    ->label('Email')
+                    ->placeholder('-'),
+                TextEntry::make('kelas')
+                    ->label('Kelas')
+                    ->placeholder('-'),
                 TextEntry::make('subjek'),
                 TextEntry::make('pesan')
                     ->columnSpanFull(),

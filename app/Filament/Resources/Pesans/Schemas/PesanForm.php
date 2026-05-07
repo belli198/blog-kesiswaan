@@ -15,7 +15,10 @@ class PesanForm
                 TextInput::make('nama')
                     ->disabled(),
                 TextInput::make('email')
-                    ->label('Email / Kelas')
+                    ->label('Email')
+                    ->disabled(),
+                TextInput::make('kelas')
+                    ->label('Kelas')
                     ->disabled(),
                 TextInput::make('subjek')
                     ->disabled(),
