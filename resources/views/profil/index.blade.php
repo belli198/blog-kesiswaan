@@ -12,9 +12,9 @@
 
 <section class="section">
     <div class="container">
-        <div class="section-header fade-up">
-            <h2>Tentang Bidang Kesiswaan</h2>
-            <div class="line"></div>
+        <div class="fade-up" style="margin-bottom:30px;text-align:center">
+            <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">🏫 Profil</span>
+            <h2 style="margin:0;color:var(--primary-900);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Tentang Bidang Kesiswaan</h2>
         </div>
         <div style="max-width:800px;margin:0 auto" class="fade-up">
             <p style="color:var(--text-secondary);margin-bottom:15px;text-align:center">Bidang Kesiswaan SMK Negeri 1 Adiwerna bertanggung jawab dalam membina, mengarahkan, dan mengembangkan potensi siswa di luar kegiatan akademik. Melalui berbagai program kegiatan, kami berupaya mencetak generasi muda yang berkarakter, kreatif, dan berprestasi.</p>
@@ -49,7 +49,11 @@
 {{-- STRUKTUR KESISWAAN --}}
 <section class="section">
     <div class="container">
-        <div class="section-header fade-up"><h2>Struktur Anggota Kesiswaan</h2><div class="line"></div><p>Guru dan Staf Bidang Kesiswaan</p></div>
+        <div class="fade-up" style="margin-bottom:40px;text-align:center">
+            <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">👥 Tim Kesiswaan</span>
+            <h2 style="margin:0;color:var(--primary-900);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Struktur Anggota Kesiswaan</h2>
+            <p style="margin-top:12px;color:var(--text-secondary)">Guru dan Staf Pembina Bidang Kesiswaan</p>
+        </div>
         <div class="grid-4">
             @forelse($kesiswaan ?? [] as $k)
             <div class="org-card fade-up">
@@ -71,7 +75,11 @@
 {{-- STRUKTUR OSIS --}}
 <section class="section" style="background:var(--surface-50)">
     <div class="container">
-        <div class="section-header fade-up"><h2>Struktur Organisasi OSIS</h2><div class="line"></div><p>Pengurus OSIS Periode Saat Ini</p></div>
+        <div class="fade-up" style="margin-bottom:40px;text-align:center">
+            <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">👥 Organisasi</span>
+            <h2 style="margin:0;color:var(--primary-900);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Struktur Organisasi OSIS</h2>
+            <p style="margin-top:12px;color:var(--text-secondary)">Pengurus OSIS Masa Bakti Saat Ini</p>
+        </div>
         <div class="grid-4">
             @forelse($osis ?? [] as $o)
             <div class="org-card fade-up">
@@ -105,9 +113,9 @@
 @if($sejarah)
 <section class="section" style="background:#fff">
     <div class="container">
-        <div class="section-header fade-up">
-            <h2>{{ $sejarah->judul }}</h2>
-            <div class="line"></div>
+        <div class="fade-up" style="margin-bottom:30px">
+            <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">🏛️ Sejarah</span>
+            <h2 style="margin:0;color:var(--primary-900);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">{{ $sejarah->judul }}</h2>
         </div>
         <div class="grid-2 fade-up" style="align-items:center;gap:40px">
             <div>
@@ -128,19 +136,19 @@
 @endif
 
 {{-- PROGRAM UNGGULAN SEKOLAH --}}
-<section class="section" style="background:var(--surface-100)">
+<section class="section" style="background:var(--surface-0)">
     <div class="container">
-        <div class="section-header fade-up">
-            <h2>Program Unggulan Sekolah</h2>
-            <div class="line"></div>
-            <p>Program-program unggulan yang menjadi kebanggaan SMK Negeri 1 Adiwerna</p>
+        <div class="fade-up" style="margin-bottom:40px">
+            <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">📋 Program</span>
+            <h2 style="margin:0;color:var(--primary-900);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Program Unggulan Sekolah</h2>
         </div>
         <div class="grid-3">
-            @forelse($programSekolah ?? [] as $prog)
-            <div class="fade-up" style="background:#fff;padding:25px 25px 25px 30px;border-radius:12px;box-shadow:var(--shadow-md);border-left:4px solid var(--primary-600);transition:transform 0.3s,box-shadow 0.3s;cursor:default">
-                <div style="font-size:2.2rem;margin-bottom:10px">{{ $prog->ikon ?? '📋' }}</div>
-                <h3 style="font-size:1.15rem;margin-bottom:8px;color:var(--text-primary)">{{ $prog->nama_program }}</h3>
-                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7">{{ $prog->deskripsi }}</p>
+            @forelse($programSekolah ?? [] as $index => $prog)
+            @php $colors = ['var(--primary-600)', 'var(--accent)', 'var(--success)', '#8B5CF6', '#EC4899', '#14B8A6']; @endphp
+            <div class="fade-up" style="background:#fff;padding:30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.03);border-top:4px solid {{ $colors[$index % count($colors)] }};border-left:1px solid var(--surface-100);border-right:1px solid var(--surface-100);border-bottom:1px solid var(--surface-100)">
+                <div style="font-size:2.2rem;margin-bottom:15px">{{ $prog->ikon ?? '📋' }}</div>
+                <h3 style="font-size:1.15rem;margin-bottom:10px;color:var(--primary-900)">{{ $prog->nama_program }}</h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin:0">{{ $prog->deskripsi }}</p>
             </div>
             @empty
             <p style="grid-column:1/-1;text-align:center;color:var(--text-secondary)">Belum ada data program sekolah.</p>
@@ -152,16 +160,16 @@
 {{-- PENGHARGAAN SEKOLAH --}}
 <section class="section" style="background:var(--surface-50)">
     <div class="container">
-        <div class="section-header fade-up">
-            <h2>Penghargaan & Prestasi Sekolah</h2>
-            <div class="line"></div>
+        <div class="fade-up" style="margin-bottom:30px">
+            <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">🏆 Penghargaan</span>
+            <h2 style="margin:0;color:var(--primary-900);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Penghargaan & Prestasi Sekolah</h2>
         </div>
 
-        <div class="filter-tabs fade-up" style="display:flex;justify-content:center;gap:10px;margin-bottom:30px;flex-wrap:wrap">
-            <button class="filter-btn active" data-filter="all" style="padding:8px 20px;border-radius:20px;border:none;background:var(--primary-600);color:#fff;cursor:pointer;font-weight:600">Semua</button>
-            <button class="filter-btn" data-filter="Nasional" style="padding:8px 20px;border-radius:20px;border:none;background:var(--surface-200);color:var(--text-primary);cursor:pointer;font-weight:600">Nasional</button>
-            <button class="filter-btn" data-filter="Provinsi" style="padding:8px 20px;border-radius:20px;border:none;background:var(--surface-200);color:var(--text-primary);cursor:pointer;font-weight:600">Provinsi</button>
-            <button class="filter-btn" data-filter="Kabupaten" style="padding:8px 20px;border-radius:20px;border:none;background:var(--surface-200);color:var(--text-primary);cursor:pointer;font-weight:600">Kabupaten</button>
+        <div class="filter-tabs fade-up" style="display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap">
+            <button class="filter-btn active" data-filter="all" style="padding:10px 24px;border-radius:50px;border:1px solid var(--primary-900);background:var(--primary-900);color:#fff;cursor:pointer;font-weight:600;font-size:0.9rem">Semua</button>
+            <button class="filter-btn" data-filter="Nasional" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);cursor:pointer;font-weight:600;font-size:0.9rem">Nasional</button>
+            <button class="filter-btn" data-filter="Provinsi" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);cursor:pointer;font-weight:600;font-size:0.9rem">Provinsi</button>
+            <button class="filter-btn" data-filter="Kabupaten" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);cursor:pointer;font-weight:600;font-size:0.9rem">Kabupaten</button>
         </div>
 
         <div class="grid-3" id="penghargaan-grid">
@@ -199,12 +207,14 @@
                 // Update active button styles
                 filterBtns.forEach(b => {
                     b.classList.remove('active');
-                    b.style.background = 'var(--surface-200)';
-                    b.style.color = 'var(--text-primary)';
+                    b.style.background = '#fff';
+                    b.style.color = 'var(--text-secondary)';
+                    b.style.borderColor = 'var(--surface-200)';
                 });
                 btn.classList.add('active');
-                btn.style.background = 'var(--primary-600)';
+                btn.style.background = 'var(--primary-900)';
                 btn.style.color = '#fff';
+                btn.style.borderColor = 'var(--primary-900)';
 
                 // Filter cards
                 const filter = btn.getAttribute('data-filter');

@@ -16,6 +16,7 @@ Route::get('/profil', [ProfilController::class, 'index'])->name('profil');
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
 Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman');
+Route::get('/pengumuman/{id}', [PengumumanController::class, 'show'])->name('pengumuman.show');
 Route::get('/ekstrakurikuler', [EkstrakurikulerController::class, 'index'])->name('ekskul');
 Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 Route::get('/karya', [KaryaController::class, 'index'])->name('karya');

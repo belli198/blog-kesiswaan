@@ -30,13 +30,15 @@
             <div class="card fade-up">
                 <img src="{{ $item->gambar ? Storage::disk('cloudinary')->url($item->gambar) : 'https://placehold.co/600x400/1B3A6B/white?text='.urlencode(Str::limit($item->judul,20)) }}" alt="{{ $item->judul }}" class="card-img">
                 <div class="card-body">
-                    <div class="card-meta">
-                        <span class="badge badge-primary">{{ $item->kategori }}</span>
-                        <span>{{ $item->published_at?->format('d M Y') }}</span>
-                    </div>
+                    <span class="kategori-badge">{{ $item->kategori }}</span>
                     <h3>{{ $item->judul }}</h3>
                     <p>{{ Str::limit($item->ringkasan ?? strip_tags($item->konten), 100) }}</p>
-                    <a href="{{ route('berita.show', $item->id) }}" class="btn btn-sm btn-primary">Baca Selengkapnya →</a>
+                    <a href="{{ route('berita.show', $item->id) }}" class="read-more">Baca Selengkapnya &rarr;</a>
+                    <div class="card-footer">
+                        <span>{{ $item->published_at?->format('d M Y') ?? now()->format('d M Y') }}</span>
+                        <span>&bull;</span>
+                        <span>{{ $item->penulis ?? 'Tim Kesiswaan' }}</span>
+                    </div>
                 </div>
             </div>
             @empty
@@ -52,13 +54,15 @@
             <div class="card fade-up">
                 <img src="https://placehold.co/600x400/{{ $b['color'] }}/white?text={{ urlencode(Str::limit($b['judul'],15)) }}" alt="{{ $b['judul'] }}" class="card-img">
                 <div class="card-body">
-                    <div class="card-meta">
-                        <span class="badge badge-primary">{{ $b['kat'] }}</span>
-                        <span>{{ now()->subDays($i*3)->format('d M Y') }}</span>
-                    </div>
+                    <span class="kategori-badge">{{ $b['kat'] }}</span>
                     <h3>{{ $b['judul'] }}</h3>
                     <p>{{ $b['desc'] }}</p>
-                    <a href="#" class="btn btn-sm btn-primary">Baca Selengkapnya →</a>
+                    <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
+                    <div class="card-footer">
+                        <span>{{ now()->subDays($i*3)->format('d M Y') }}</span>
+                        <span>&bull;</span>
+                        <span>Tim Kesiswaan</span>
+                    </div>
                 </div>
             </div>
             @endforeach

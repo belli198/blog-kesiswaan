@@ -10,7 +10,7 @@
     <title>@yield('title') - {{ $siteName }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @yield('styles')
 </head>
@@ -53,35 +53,9 @@
     {{-- FOOTER --}}
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h4>🏫 {{ $siteName }}</h4>
-                    <p>Blog Kesiswaan sebagai media informasi, dokumentasi, dan apresiasi kegiatan siswa {{ $siteName }}.</p>
-                </div>
-                <div>
-                    <h4>Navigasi</h4>
-                    <a href="{{ route('beranda') }}">Beranda</a>
-                    <a href="{{ route('profil') }}">Profil</a>
-                    <a href="{{ route('berita.index') }}">Berita</a>
-                    <a href="{{ route('pengumuman') }}">Pengumuman</a>
-                </div>
-                <div>
-                    <h4>Lainnya</h4>
-                    <a href="{{ route('ekskul') }}">Ekstrakurikuler</a>
-                    <a href="{{ route('prestasi') }}">Prestasi</a>
-                    <a href="{{ route('karya') }}">Karya Siswa</a>
-                    <a href="{{ route('galeri') }}">Galeri</a>
-                </div>
-                <div>
-                    <h4>Kontak</h4>
-                    <a href="{{ route('kontak') }}">Hubungi Kami</a>
-                    <a href="#">📍 Adiwerna, Tegal</a>
-                    <a href="#">📧 info@smkn1adiwerna.sch.id</a>
-                    <a href="#">📞 (0283) 123456</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; {{ date('Y') }} Blog Kesiswaan SMK Negeri 1 Adiwerna. Dibuat dengan ❤️ oleh Tim Kesiswaan.</p>
+            <div class="footer-content">
+                <div>&copy; {{ date('Y') }} Blog Kesiswaan <strong>SMKN 1 Adiwerna</strong></div>
+                <div>Made with 💖 by <a href="{{ route('profil') }}">Tim Kesiswaan</a></div>
             </div>
         </div>
     </footer>

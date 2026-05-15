@@ -26,9 +26,15 @@ class EkstrakurikulerForm
                     ->required(),
                 \Filament\Forms\Components\FileUpload::make('gambar')->disk('cloudinary')->image()->directory('uploads')
                     ->default(null),
-                TextInput::make('kategori')
+                \Filament\Forms\Components\Select::make('kategori')
+                    ->options([
+                        'Wajib' => 'Wajib',
+                        'Olahraga' => 'Olahraga',
+                        'Kesenian' => 'Kesenian',
+                        'Keilmuan' => 'Keilmuan',
+                    ])
                     ->required()
-                    ->default('Umum'),
+                    ->default('Wajib'),
                 Toggle::make('is_active')
                     ->required(),
             ]);

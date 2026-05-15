@@ -15,4 +15,10 @@ class PengumumanController extends Controller
 
         return view('pengumuman.index', compact('pengumuman'));
     }
+
+    public function show($id)
+    {
+        $pengumuman = Pengumuman::findOrFail($id);
+        return view('pengumuman.show', compact('pengumuman'));
+    }
 }

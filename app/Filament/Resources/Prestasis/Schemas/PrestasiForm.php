@@ -35,7 +35,11 @@ class PrestasiForm
                     ->required(),
                 \Filament\Forms\Components\FileUpload::make('gambar')->disk('cloudinary')->image()->directory('uploads')
                     ->default(null),
-                TextInput::make('kategori')
+                Select::make('kategori')
+                    ->options([
+                        'Akademik' => 'Akademik',
+                        'Non-Akademik' => 'Non-Akademik',
+                    ])
                     ->required()
                     ->default('Akademik'),
             ]);

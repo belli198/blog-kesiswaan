@@ -5,49 +5,40 @@
 <div class="page-header">
     <div class="container">
         <div class="breadcrumb"><a href="{{ route('beranda') }}">Beranda</a> <span>/</span> <span>Galeri</span></div>
-        <h1>📸 Galeri Kegiatan</h1>
+        <h1>Galeri Kegiatan</h1>
         <p>Dokumentasi berbagai momen berharga di SMK Negeri 1 Adiwerna</p>
     </div>
 </div>
 
 <section class="section">
     <div class="container">
-        <div class="filter-tabs fade-up">
-            <button class="filter-tab active" data-filter="Semua">Semua Foto</button>
-            <button class="filter-tab" data-filter="MOS/MPLS">MOS/MPLS</button>
-            <button class="filter-tab" data-filter="17-an">Lomba 17-an</button>
-            <button class="filter-tab" data-filter="Class Meeting">Class Meeting</button>
-            <button class="filter-tab" data-filter="Study Tour">Study Tour</button>
-            <button class="filter-tab" data-filter="Ekskul">Kegiatan Ekskul</button>
+        <div class="filter-tabs fade-up" style="display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap;justify-content:center">
+            <button class="filter-btn active" data-filter="Semua" style="padding:10px 24px;border-radius:50px;border:1px solid var(--primary-900);background:var(--primary-900);color:#fff;font-weight:600;font-size:0.9rem;cursor:pointer">Semua Foto</button>
+            <button class="filter-btn" data-filter="MOS/MPLS" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);font-weight:600;font-size:0.9rem;cursor:pointer">MOS/MPLS</button>
+            <button class="filter-btn" data-filter="17-an" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);font-weight:600;font-size:0.9rem;cursor:pointer">Lomba 17-an</button>
+            <button class="filter-btn" data-filter="Class Meeting" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);font-weight:600;font-size:0.9rem;cursor:pointer">Class Meeting</button>
+            <button class="filter-btn" data-filter="Study Tour" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);font-weight:600;font-size:0.9rem;cursor:pointer">Study Tour</button>
+            <button class="filter-btn" data-filter="Ekskul" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);font-weight:600;font-size:0.9rem;cursor:pointer">Kegiatan Ekskul</button>
         </div>
 
         <div class="gallery-grid fade-up">
-            @php $demoGaleri = [
-                ['k'=>'MOS/MPLS','img'=>'152E56','title'=>'Upacara Pembukaan MPLS','desc'=>'Penyematan tanda peserta MPLS oleh Kepala Sekolah'],
-                ['k'=>'MOS/MPLS','img'=>'1B3A6B','title'=>'Dinamika Kelompok','desc'=>'Peserta MPLS mengikuti permainan dinamika kelompok di lapangan'],
-                ['k'=>'17-an','img'=>'2563EB','title'=>'Balap Karung','desc'=>'Keseruan lomba balap karung antar siswa memeriahkan HUT RI'],
-                ['k'=>'17-an','img'=>'3B82F6','title'=>'Tarik Tambang','desc'=>'Final lomba tarik tambang guru melawan pengurus OSIS'],
-                ['k'=>'Class Meeting','img'=>'0F2140','title'=>'Final Futsal','desc'=>'Pertandingan sengit di babak final futsal putra'],
-                ['k'=>'Class Meeting','img'=>'60A5FA','title'=>'Lomba Menyanyi','desc'=>'Penampilan memukau perwakilan kelas XII di lomba menyanyi solo'],
-                ['k'=>'Study Tour','img'=>'152E56','title'=>'Kunjungan Industri','desc'=>'Siswa menyimak pemaparan dari praktisi industri saat study tour'],
-                ['k'=>'Study Tour','img'=>'1B3A6B','title'=>'Foto Bersama','desc'=>'Foto kenangan di depan Candi Borobudur saat study tour ke Yogyakarta'],
-                ['k'=>'Ekskul','img'=>'2563EB','title'=>'Persami Pramuka','desc'=>'Kegiatan Perkemahan Sabtu Minggu anggota Pramuka'],
-                ['k'=>'Ekskul','img'=>'3B82F6','title'=>'Latihan PMR','desc'=>'Simulasi pertolongan pertama oleh anggota PMR'],
-                ['k'=>'Ekskul','img'=>'0F2140','title'=>'Pentas Seni','desc'=>'Penampilan ekskul Tari Tradisional di acara perpisahan'],
-                ['k'=>'17-an','img'=>'60A5FA','title'=>'Makan Kerupuk','desc'=>'Ekspresi lucu peserta lomba makan kerupuk']
-            ]; @endphp
-
-            @foreach($demoGaleri as $index => $g)
-            <div class="gallery-item" data-category="{{ $g['k'] }}">
-                <img src="https://placehold.co/600x450/{{ $g['img'] }}/white?text={{ urlencode($g['title']) }}" alt="{{ $g['title'] }}">
+            @forelse($galeri ?? [] as $item)
+            <div class="gallery-item" data-category="{{ $item->kategori }}">
+                <img src="{{ Storage::disk('cloudinary')->url($item->gambar) }}" alt="{{ $item->judul }}">
                 <div class="gallery-overlay">
                     <div>
-                        <span class="badge" style="background:rgba(255,255,255,0.2);color:white;margin-bottom:8px;font-size:0.7rem">{{ $g['k'] }}</span>
-                        <p>{{ $g['title'] }}</p>
+                        <span class="badge" style="background:rgba(255,255,255,0.2);color:white;margin-bottom:8px;font-size:0.7rem">{{ $item->kategori }}</span>
+                        <p>{{ $item->judul }}</p>
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div style="grid-column:1/-1;text-align:center;padding:60px 20px;background:var(--surface-0);border-radius:24px;border:1px dashed var(--surface-200)">
+                <div style="font-size:3rem;margin-bottom:15px">📸</div>
+                <h3 style="color:var(--primary-900);font-size:1.2rem;margin-bottom:10px">Belum ada foto galeri</h3>
+                <p style="color:var(--text-secondary);font-size:0.95rem">Galeri foto belum ditambahkan oleh administrator.</p>
+            </div>
+            @endforelse
         </div>
     </div>
 </section>
@@ -59,4 +50,38 @@
     <img src="" alt="Gallery Image" id="lightbox-img">
     <div class="lightbox-nav lightbox-next">❯</div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button styles
+            filterBtns.forEach(b => {
+                b.classList.remove('active');
+                b.style.background = '#fff';
+                b.style.color = 'var(--text-secondary)';
+                b.style.borderColor = 'var(--surface-200)';
+            });
+            btn.classList.add('active');
+            btn.style.background = 'var(--primary-900)';
+            btn.style.color = '#fff';
+            btn.style.borderColor = 'var(--primary-900)';
+
+            // Filter cards
+            const filter = btn.getAttribute('data-filter');
+            cards.forEach(card => {
+                if(filter === 'Semua' || card.getAttribute('data-category') === filter) {
+                    card.style.display = '';
+                    card.style.animation = 'fadeIn .4s ease';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
 @endsection

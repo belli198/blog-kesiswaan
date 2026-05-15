@@ -24,9 +24,15 @@ class KaryaForm
                     ->required(),
                 \Filament\Forms\Components\FileUpload::make('gambar')->disk('cloudinary')->image()->directory('uploads')
                     ->default(null),
-                TextInput::make('kategori')
+                \Filament\Forms\Components\Select::make('kategori')
+                    ->options([
+                        'Puisi' => 'Puisi',
+                        'Cerpen' => 'Cerpen',
+                        'Artikel' => 'Artikel',
+                        'Visual' => 'Karya Visual',
+                    ])
                     ->required()
-                    ->default('Umum'),
+                    ->default('Puisi'),
                 Toggle::make('is_featured')
                     ->required(),
             ]);

@@ -20,9 +20,16 @@ class GaleriForm
                     ->columnSpanFull(),
                 \Filament\Forms\Components\FileUpload::make('gambar')->disk('cloudinary')->image()->directory('uploads')
                     ->required(),
-                TextInput::make('kategori')
+                \Filament\Forms\Components\Select::make('kategori')
+                    ->options([
+                        'MOS/MPLS' => 'MOS/MPLS',
+                        '17-an' => 'Lomba 17-an',
+                        'Class Meeting' => 'Class Meeting',
+                        'Study Tour' => 'Study Tour',
+                        'Ekskul' => 'Kegiatan Ekskul',
+                    ])
                     ->required()
-                    ->default('Kegiatan'),
+                    ->default('MOS/MPLS'),
                 DatePicker::make('tanggal_kegiatan'),
             ]);
     }
