@@ -26,21 +26,21 @@
                         <div class="icon-box" style="width:50px;height:50px;background:var(--surface-50);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">📍</div>
                         <div>
                             <h4 style="font-size:1.1rem;margin-bottom:5px;color:var(--primary-900)">Alamat Sekolah</h4>
-                            <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0">Jl. Raya Ujungrusi Purbasana,<br>Kec. Adiwerna, Kab. Tegal,<br>Jawa Tengah 52194</p>
+                            <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0">Jl. Raya II, PO BOX 2, Pesarean,<br>Kec. Adiwerna, Kab. Tegal,<br>Jawa Tengah 52194</p>
                         </div>
                     </div>
                     <div class="contact-item" style="display:flex;gap:20px;align-items:flex-start">
                         <div class="icon-box" style="width:50px;height:50px;background:var(--surface-50);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">📧</div>
                         <div>
                             <h4 style="font-size:1.1rem;margin-bottom:5px;color:var(--primary-900)">Email</h4>
-                            <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0">osis@smkn1adiwerna.sch.id<br>info@smkn1adiwerna.sch.id</p>
+                            <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0">mail@smkn1adw.sch.id</p>
                         </div>
                     </div>
                     <div class="contact-item" style="display:flex;gap:20px;align-items:flex-start">
                         <div class="icon-box" style="width:50px;height:50px;background:var(--surface-50);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">📞</div>
                         <div>
                             <h4 style="font-size:1.1rem;margin-bottom:5px;color:var(--primary-900)">Telepon</h4>
-                            <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0">(0283) 443768 (Ext. Kesiswaan)</p>
+                            <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0">(0283) 443768</p>
                         </div>
                     </div>
                 </div>
