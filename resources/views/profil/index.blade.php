@@ -47,7 +47,7 @@
 </section>
 
 {{-- STRUKTUR KESISWAAN --}}
-<section class="section">
+<section class="section" id="struktur-kesiswaan">
     <div class="container">
         <div class="fade-up" style="margin-bottom:40px;text-align:center">
             <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">👥 Tim Kesiswaan</span>
@@ -69,11 +69,14 @@
             <p style="grid-column:1/-1;text-align:center;color:var(--text-secondary)">Belum ada data anggota kesiswaan.</p>
             @endforelse
         </div>
+        @if(isset($kesiswaan) && $kesiswaan->hasPages())
+        <div class="pagination-wrapper">{{ $kesiswaan->withQueryString()->fragment('struktur-kesiswaan')->links() }}</div>
+        @endif
     </div>
 </section>
 
 {{-- STRUKTUR OSIS --}}
-<section class="section" style="background:var(--surface-50)">
+<section class="section" id="struktur-osis" style="background:var(--surface-50)">
     <div class="container">
         <div class="fade-up" style="margin-bottom:40px;text-align:center">
             <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">👥 Organisasi</span>
@@ -107,6 +110,9 @@
             @endforeach
             @endforelse
         </div>
+        @if(isset($osis) && $osis->hasPages())
+        <div class="pagination-wrapper">{{ $osis->withQueryString()->fragment('struktur-osis')->links() }}</div>
+        @endif
     </div>
 </section>
 {{-- SEJARAH SEKOLAH --}}
