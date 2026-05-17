@@ -229,3 +229,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// ===== DRAG-TO-SCROLL FOR MOUSE ON CAROUSELS =====
+document.querySelectorAll('.mobile-carousel').forEach(carousel => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('mousedown', (e) => {
+        // Ignore if clicking on a link or button
+        if (e.target.closest('a, button')) return;
+        isDown = true;
+        carousel.style.cursor = 'grabbing';
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        e.preventDefault();
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+        carousel.style.cursor = 'grab';
+    });
+
+    carousel.addEventListener('mouseup', () => {
+        isDown = false;
+        carousel.style.cursor = 'grab';
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 2;
+        carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    // Show grab cursor by default
+    carousel.style.cursor = 'grab';
+});
