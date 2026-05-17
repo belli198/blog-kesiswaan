@@ -155,7 +155,7 @@
             @endforelse
         </div>
         @if(isset($programSekolah) && $programSekolah->hasPages())
-        <div class="pagination-wrapper pagination-sm" style="margin-top:30px;display:flex;justify-content:center">{{ $programSekolah->withQueryString()->fragment('program-sekolah')->links() }}</div>
+        <div class="pagination-wrapper pagination-sm">{{ $programSekolah->withQueryString()->fragment('program-sekolah')->links() }}</div>
         @endif
     </div>
 </section>
@@ -198,7 +198,7 @@
             @endforelse
         </div>
         @if(isset($penghargaan) && $penghargaan->hasPages())
-        <div class="pagination-wrapper pagination-sm" style="margin-top:30px;display:flex;justify-content:center">{{ $penghargaan->withQueryString()->fragment('penghargaan-sekolah')->links() }}</div>
+        <div class="pagination-wrapper pagination-sm">{{ $penghargaan->withQueryString()->fragment('penghargaan-sekolah')->links() }}</div>
         @endif
     </div>
 </section>
