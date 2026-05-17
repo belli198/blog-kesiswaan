@@ -379,7 +379,7 @@ body.fade-in{animation:pageFadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwar
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     scroll-snap-type: x mandatory;
     padding-bottom: 20px;
     -webkit-overflow-scrolling: touch;
@@ -417,6 +417,8 @@ body.fade-in{animation:pageFadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwar
     margin-top: 40px;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 10;
 }
 .pagination-wrapper svg {
     width: 16px !important;
