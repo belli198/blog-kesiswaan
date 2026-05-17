@@ -33,6 +33,22 @@
   --font-body: 'DM Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
+/* ===== DARK MODE TOKENS ===== */
+[data-theme="dark"] {
+  --primary-900: #0B1321;
+  --primary-800: #0F1D32;
+  --surface-0: #1E293B;
+  --surface-50: #0F172A;
+  --surface-100: #1E293B;
+  --surface-200: #334155;
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-light: #94A3B8;
+  --shadow: 0 4px 12px rgba(0,0,0,.3);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.4);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,.5);
+}
+
 /* ===== RESET & GLOBAL ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
@@ -40,7 +56,7 @@ body{font-family:var(--font-body);color:var(--text-primary);background:var(--sur
 a{text-decoration:none;color:inherit;transition:var(--transition)}
 ul,ol{list-style:none}
 img{max-width:100%;height:auto;display:block}
-button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none}
+button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none;color:var(--text-primary)}
 h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);line-height:1.2;font-weight:800;letter-spacing:-0.02em;color:var(--text-primary)}
 h1{font-size:clamp(2.2rem,5vw,3.5rem)}
 h2{font-size:clamp(1.6rem,3.5vw,2.4rem)}
@@ -55,7 +71,7 @@ h3{font-size:clamp(1.15rem,2.5vw,1.5rem)}
 .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
 .section{padding:80px 0}
 .section-header{text-align:center;margin-bottom:50px}
-.section-header h2{color:var(--primary-800);margin-bottom:10px}
+.section-header h2{color:var(--text-primary);margin-bottom:10px}
 .section-header p{color:var(--text-secondary);max-width:600px;margin:0 auto;font-size:1.05rem}
 .section-header .line{width:70px;height:4px;background:linear-gradient(90deg,var(--primary-500),var(--accent));border-radius:2px;margin:15px auto 0}
 .text-center{text-align:center}
@@ -66,8 +82,8 @@ h3{font-size:clamp(1.15rem,2.5vw,1.5rem)}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 
 /* ===== NAVBAR ===== */
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 0;transition:var(--transition);background:var(--primary-900)}
-.navbar.scrolled{background:rgba(10,22,40,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:10px 0;box-shadow:0 2px 24px rgba(0,0,0,.18);border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 0;transition:var(--transition);background:var(--primary-900);border-bottom:1px solid transparent}
+.navbar.scrolled{background:rgba(10,22,40,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 10px 30px rgba(0,0,0,.15);border-bottom:1px solid rgba(255,255,255,.1)}
 .navbar .container{display:flex;align-items:center;justify-content:space-between}
 .navbar-brand{display:flex;align-items:center;gap:12px;font-family:var(--font-heading);font-weight:800;font-size:1.15rem;color:#fff}
 .brand-logo{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.15);background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.2)}
@@ -137,15 +153,15 @@ body.menu-open{overflow:hidden;position:fixed;width:100%;height:100%}
 .btn-white:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 
 /* ===== CARDS ===== */
-.card{background:var(--surface-0);border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.05);transition:all .3s ease;border:none}
-.card:hover{transform:translateY(-6px);box-shadow:0 15px 35px rgba(0,0,0,0.08)}
+.card{background:var(--surface-0);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);transition:all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);border:1px solid var(--surface-100)}
+.card:hover{transform:translateY(-8px) scale(1.01);box-shadow:var(--shadow-lg);border-color:var(--primary-400)}
 .card-img{width:100%;height:240px;object-fit:cover;background:var(--surface-100)}
 .card-body{padding:24px 30px}
-.card-body h3{font-size:1.25rem;line-height:1.4;margin-bottom:16px;color:var(--primary-900)}
+.card-body h3{font-size:1.25rem;line-height:1.4;margin-bottom:16px;color:var(--text-primary)}
 .card-body p{font-size:0.95rem;color:var(--text-secondary);line-height:1.6;margin-bottom:16px}
 .card-body .kategori-badge{font-size:0.75rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px}
 .card-body .read-more{color:var(--primary-600);font-weight:700;font-size:0.9rem;display:inline-block;margin-bottom:20px;text-decoration:none;transition:var(--transition)}
-.card-body .read-more:hover{color:var(--primary-800)}
+.card-body .read-more:hover{color:var(--primary-400)}
 .card-footer{font-size:0.85rem;color:var(--text-light);display:flex;align-items:center;gap:10px;border-top:1px solid var(--surface-100);padding-top:16px}
 .card-meta{display:flex;align-items:center;gap:12px;font-size:.8rem;color:var(--text-light);margin-bottom:12px}
 .card-meta svg{width:14px;height:14px}
@@ -273,7 +289,7 @@ body.menu-open{overflow:hidden;position:fixed;width:100%;height:100%}
 .vm-card.misi{background:var(--surface-0);border:1px solid var(--surface-100)}
 .vm-card h3{margin-bottom:20px;display:flex;align-items:center;gap:12px;font-size:1.6rem;letter-spacing:-0.02em}
 .vm-card.visi h3{color:#fff}
-.vm-card.misi h3{color:var(--primary-900)}
+.vm-card.misi h3{color:var(--text-primary)}
 .vm-card.misi ol{counter-reset:misi;padding-left:0;display:flex;flex-direction:column;gap:12px}
 .vm-card.misi ol li{counter-increment:misi;padding:4px 0 4px 35px;position:relative;color:var(--text-secondary);font-size:0.95rem;line-height:1.6}
 .vm-card.misi ol li::before{content:counter(misi) ".";position:absolute;left:0;top:4px;color:var(--text-light);font-weight:600;font-size:0.95rem}
@@ -319,6 +335,12 @@ body.menu-open{overflow:hidden;position:fixed;width:100%;height:100%}
 .back-to-top{position:fixed;bottom:30px;right:30px;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--primary-500),var(--primary-400));color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all .3s ease;box-shadow:0 4px 20px rgba(37,99,235,.35);z-index:999;border:none;font-size:1.2rem}
 .back-to-top.show{opacity:1;visibility:visible}
 .back-to-top:hover{transform:translateY(-4px);box-shadow:0 6px 28px rgba(37,99,235,.45)}
+
+/* ===== PAGE TRANSITION ===== */
+.page-transition{position:fixed;inset:0;background:var(--primary-900);z-index:99999;opacity:0;visibility:hidden;transition:opacity 0.5s ease, visibility 0.5s ease;pointer-events:none}
+.page-transition.active{opacity:1;visibility:visible;pointer-events:all}
+body.fade-in{animation:pageFadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards}
+@keyframes pageFadeIn{from{opacity:0}to{opacity:1}}
 
 /* ===== RESPONSIVE ===== */
 
@@ -369,4 +391,30 @@ body.menu-open{overflow:hidden;position:fixed;width:100%;height:100%}
   .gallery-grid{grid-template-columns:1fr}
   .tabs{gap:0}
   .tab-btn{padding:10px 14px;font-size:.85rem}
+}
+/* ===== ANIMATED LIVE BACKGROUND ===== */
+.live-bg {
+    background: linear-gradient(-45deg, #0F172A, #1E3A8A, #312E81, #0B1321);
+    background-size: 400% 400%;
+    animation: liveGradient 15s ease infinite;
+    color: #fff !important;
+    position: relative;
+    overflow: hidden;
+}
+.live-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+.live-bg h2, .live-bg h3, .live-bg h4, .live-bg p, .live-bg span {
+    color: #fff !important;
+}
+@keyframes liveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

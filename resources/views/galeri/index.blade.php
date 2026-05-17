@@ -13,12 +13,12 @@
 <section class="section">
     <div class="container">
         <div class="filter-tabs fade-up" style="display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap;justify-content:center">
-            <button class="filter-btn active" data-filter="Semua" style="padding:10px 24px;border-radius:50px;border:1px solid var(--primary-900);background:var(--primary-900);color:#fff;font-weight:600;font-size:0.9rem;cursor:pointer">Semua Foto</button>
-            <button class="filter-btn" data-filter="MOS/MPLS" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);font-weight:600;font-size:0.9rem;cursor:pointer">MOS/MPLS</button>
-            <button class="filter-btn" data-filter="17-an" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);font-weight:600;font-size:0.9rem;cursor:pointer">Lomba 17-an</button>
-            <button class="filter-btn" data-filter="Class Meeting" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);font-weight:600;font-size:0.9rem;cursor:pointer">Class Meeting</button>
-            <button class="filter-btn" data-filter="Study Tour" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);font-weight:600;font-size:0.9rem;cursor:pointer">Study Tour</button>
-            <button class="filter-btn" data-filter="Ekskul" style="padding:10px 24px;border-radius:50px;border:1px solid var(--surface-200);background:#fff;color:var(--text-secondary);font-weight:600;font-size:0.9rem;cursor:pointer">Kegiatan Ekskul</button>
+            <button class="filter-tab active" data-filter="Semua">Semua Foto</button>
+            <button class="filter-tab" data-filter="MOS/MPLS">MOS/MPLS</button>
+            <button class="filter-tab" data-filter="17-an">Lomba 17-an</button>
+            <button class="filter-tab" data-filter="Class Meeting">Class Meeting</button>
+            <button class="filter-tab" data-filter="Study Tour">Study Tour</button>
+            <button class="filter-tab" data-filter="Ekskul">Kegiatan Ekskul</button>
         </div>
 
         <div class="gallery-grid fade-up">
@@ -35,7 +35,7 @@
             @empty
             <div style="grid-column:1/-1;text-align:center;padding:60px 20px;background:var(--surface-0);border-radius:24px;border:1px dashed var(--surface-200)">
                 <div style="font-size:3rem;margin-bottom:15px">📸</div>
-                <h3 style="color:var(--primary-900);font-size:1.2rem;margin-bottom:10px">Belum ada foto galeri</h3>
+                <h3 style="color:var(--text-primary);font-size:1.2rem;margin-bottom:10px">Belum ada foto galeri</h3>
                 <p style="color:var(--text-secondary);font-size:0.95rem">Galeri foto belum ditambahkan oleh administrator.</p>
             </div>
             @endforelse
@@ -53,7 +53,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    const filterBtns = document.querySelectorAll('.filter-tab');
     const cards = document.querySelectorAll('.gallery-item');
 
     filterBtns.forEach(btn => {
@@ -61,14 +61,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Update active button styles
             filterBtns.forEach(b => {
                 b.classList.remove('active');
-                b.style.background = '#fff';
-                b.style.color = 'var(--text-secondary)';
-                b.style.borderColor = 'var(--surface-200)';
+                
+                
+                
             });
             btn.classList.add('active');
-            btn.style.background = 'var(--primary-900)';
-            btn.style.color = '#fff';
-            btn.style.borderColor = 'var(--primary-900)';
+            
+            
+            
 
             // Filter cards
             const filter = btn.getAttribute('data-filter');
@@ -85,3 +85,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 @endsection
+
+

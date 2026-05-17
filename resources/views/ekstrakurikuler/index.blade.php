@@ -14,7 +14,7 @@
     <div class="container">
         <div class="filter-tabs fade-up" style="display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap;justify-content:center">
             @foreach($kategoris ?? ['Semua', 'Olahraga', 'Seni', 'Akademik', 'Teknologi', 'Keagamaan'] as $kat)
-            <a href="{{ route('ekskul', ['kategori' => $kat]) }}" class="filter-btn {{ (request('kategori', 'Semua') == $kat) ? 'active' : '' }}" style="padding:10px 24px;border-radius:50px;border:1px solid {{ (request('kategori', 'Semua') == $kat) ? 'var(--primary-900)' : 'var(--surface-200)' }};background:{{ (request('kategori', 'Semua') == $kat) ? 'var(--primary-900)' : '#fff' }};color:{{ (request('kategori', 'Semua') == $kat) ? '#fff' : 'var(--text-secondary)' }};font-weight:600;font-size:0.9rem;text-decoration:none">{{ $kat }}</a>
+            <a href="{{ route('ekskul', ['kategori' => $kat]) }}" class="filter-tab {{ (request('kategori', 'Semua') == $kat) ? 'active' : '' }}">{{ $kat }}</a>
             @endforeach
         </div>
 
@@ -29,7 +29,7 @@
                         {{ substr($item->nama, 0, 1) }}
                     @endif
                 </div>
-                <h3 style="font-size:1.15rem;margin-bottom:8px;color:var(--primary-900)">{{ $item->nama }}</h3>
+                <h3 style="font-size:1.15rem;margin-bottom:8px;color:var(--text-primary)">{{ $item->nama }}</h3>
                 <span class="badge badge-gray" style="margin-bottom:12px">{{ $item->kategori ?? 'Umum' }}</span>
                 <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6">{{ $item->deskripsi }}</p>
                 <div class="ekskul-info" style="margin-top:15px;padding-top:15px;border-top:1px solid var(--surface-100);font-size:0.85rem;color:var(--text-light)">
@@ -40,7 +40,7 @@
             @empty
             <div style="text-align:center;padding:60px 20px;grid-column:1/-1;background:var(--surface-0);border-radius:24px;border:1px dashed var(--surface-200)">
                 <div style="font-size:3rem;margin-bottom:15px">🎯</div>
-                <h3 style="color:var(--primary-900);font-size:1.2rem;margin-bottom:10px">Belum ada data ekstrakurikuler</h3>
+                <h3 style="color:var(--text-primary);font-size:1.2rem;margin-bottom:10px">Belum ada data ekstrakurikuler</h3>
                 <p style="color:var(--text-secondary);font-size:0.95rem">Data ekstrakurikuler belum ditambahkan oleh administrator.</p>
             </div>
             @endforelse
@@ -48,7 +48,7 @@
     </div>
 </section>
 
-<section class="section" style="background:var(--primary-900);color:white;margin:40px 20px;border-radius:30px;padding:80px 0">
+<section class="section live-bg" style="margin:40px 20px;border-radius:30px;padding:80px 0">
     <div class="container text-center fade-up">
         <span class="badge" style="background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);margin-bottom:16px">🏆 Prestasi</span>
         <h2 style="color:white;margin-bottom:20px;font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Prestasi Ekstrakurikuler</h2>
@@ -76,3 +76,5 @@
     </div>
 </section>
 @endsection
+
+

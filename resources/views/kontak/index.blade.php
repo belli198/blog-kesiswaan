@@ -16,30 +16,30 @@
             {{-- INFORMASI KONTAK & TENTANG --}}
             <div>
                 <span class="badge badge-gray" style="margin-bottom:16px;display:inline-flex;align-items:center;gap:6px">👋 Sapa Kami</span>
-                <h2 style="margin-bottom:20px;font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em;color:var(--primary-900)">Tentang Blog Kesiswaan</h2>
+                <h2 style="margin-bottom:20px;font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em;color:var(--text-primary)">Tentang Blog Kesiswaan</h2>
                 <p style="color:var(--text-secondary);margin-bottom:15px;line-height:1.8;font-size:1.05rem">Blog ini dikelola secara resmi oleh pengurus OSIS dan Tim Jurnalistik SMK Negeri 1 Adiwerna. Tujuan utama pembuatan blog ini adalah untuk memberikan transparansi informasi terkait program kesiswaan, mendokumentasikan setiap momen penting di sekolah, serta menyediakan ruang pameran maya bagi karya dan prestasi siswa.</p>
                 <p style="color:var(--text-secondary);margin-bottom:40px;line-height:1.8;font-size:1.05rem">Tim redaksi kami terdiri dari perwakilan siswa dari berbagai jurusan yang memiliki minat di bidang penulisan, fotografi, dan desain web.</p>
                 
-                <h3 style="margin-bottom:25px;font-size:1.4rem;color:var(--primary-900)">Informasi Kontak</h3>
+                <h3 style="margin-bottom:25px;font-size:1.4rem;color:var(--text-primary)">Informasi Kontak</h3>
                 <div class="contact-info" style="display:flex;flex-direction:column;gap:20px;margin-bottom:40px">
                     <div class="contact-item" style="display:flex;gap:20px;align-items:flex-start">
                         <div class="icon-box" style="width:50px;height:50px;background:var(--surface-50);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">📍</div>
                         <div>
-                            <h4 style="font-size:1.1rem;margin-bottom:5px;color:var(--primary-900)">Alamat Sekolah</h4>
+                            <h4 style="font-size:1.1rem;margin-bottom:5px;color:var(--text-primary)">Alamat Sekolah</h4>
                             <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0">Jl. Raya II, PO BOX 2, Pesarean,<br>Kec. Adiwerna, Kab. Tegal,<br>Jawa Tengah 52194</p>
                         </div>
                     </div>
                     <div class="contact-item" style="display:flex;gap:20px;align-items:flex-start">
                         <div class="icon-box" style="width:50px;height:50px;background:var(--surface-50);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">📧</div>
                         <div>
-                            <h4 style="font-size:1.1rem;margin-bottom:5px;color:var(--primary-900)">Email</h4>
+                            <h4 style="font-size:1.1rem;margin-bottom:5px;color:var(--text-primary)">Email</h4>
                             <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0">mail@smkn1adw.sch.id</p>
                         </div>
                     </div>
                     <div class="contact-item" style="display:flex;gap:20px;align-items:flex-start">
                         <div class="icon-box" style="width:50px;height:50px;background:var(--surface-50);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">📞</div>
                         <div>
-                            <h4 style="font-size:1.1rem;margin-bottom:5px;color:var(--primary-900)">Telepon</h4>
+                            <h4 style="font-size:1.1rem;margin-bottom:5px;color:var(--text-primary)">Telepon</h4>
                             <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.6;margin:0">(0283) 443768</p>
                         </div>
                     </div>
@@ -55,8 +55,8 @@
 
             {{-- FORM KONTAK --}}
             <div>
-                <div style="background:#fff;padding:50px;border-radius:30px;box-shadow:0 10px 40px rgba(0,0,0,0.04);border:1px solid var(--surface-100)">
-                    <h3 style="margin-bottom:10px;font-size:1.5rem;color:var(--primary-900)">Kirim Pesan</h3>
+                <div style="background:var(--surface-0);padding:50px;border-radius:30px;box-shadow:0 10px 40px rgba(0,0,0,0.04);border:1px solid var(--surface-100)">
+                    <h3 style="margin-bottom:10px;font-size:1.5rem;color:var(--text-primary)">Kirim Pesan</h3>
                     <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:30px">Silakan isi formulir di bawah ini untuk mengirim pesan langsung kepada tim redaksi / pengurus OSIS.</p>
                     
                     @if(session('success'))
@@ -74,20 +74,20 @@
                     <form action="{{ route('kontak.kirim') }}" method="POST">
                         @csrf
                         <div class="form-group" style="margin-bottom:20px">
-                            <label for="nama" style="display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:var(--primary-900)">Nama Lengkap</label>
+                            <label for="nama" style="display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:var(--text-primary)">Nama Lengkap</label>
                             <input type="text" id="nama" name="nama" required placeholder="Contoh: Budi Santoso" value="{{ old('nama') }}" style="width:100%;padding:14px;border:1px solid var(--surface-200);border-radius:12px;background:var(--surface-50);font-family:inherit;font-size:0.95rem;outline:none;transition:border 0.3s">
                         </div>
                         <div class="form-group" style="margin-bottom:20px">
-                            <label for="email" style="display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:var(--primary-900)">Alamat Email <span style="color:var(--text-secondary);font-weight:400;font-size:0.8rem">(opsional)</span></label>
+                            <label for="email" style="display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:var(--text-primary)">Alamat Email <span style="color:var(--text-secondary);font-weight:400;font-size:0.8rem">(opsional)</span></label>
                             <input type="email" id="email" name="email" placeholder="Contoh: budi@gmail.com" value="{{ old('email') }}" style="width:100%;padding:14px;border:1px solid var(--surface-200);border-radius:12px;background:var(--surface-50);font-family:inherit;font-size:0.95rem;outline:none;transition:border 0.3s">
                         </div>
                         <div class="form-group" style="margin-bottom:20px">
-                            <label for="kelas" style="display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:var(--primary-900)">Kelas <span style="color:var(--text-secondary);font-weight:400;font-size:0.8rem">(opsional)</span></label>
+                            <label for="kelas" style="display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:var(--text-primary)">Kelas <span style="color:var(--text-secondary);font-weight:400;font-size:0.8rem">(opsional)</span></label>
                             <input type="text" id="kelas" name="kelas" placeholder="Contoh: XI RPL 1" value="{{ old('kelas') }}" style="width:100%;padding:14px;border:1px solid var(--surface-200);border-radius:12px;background:var(--surface-50);font-family:inherit;font-size:0.95rem;outline:none;transition:border 0.3s">
                         </div>
                         <p style="color:var(--text-secondary);font-size:0.8rem;margin:-10px 0 15px;font-style:italic">* Isi salah satu: Email atau Kelas</p>
                         <div class="form-group" style="margin-bottom:20px">
-                            <label for="subjek" style="display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:var(--primary-900)">Subjek / Keperluan</label>
+                            <label for="subjek" style="display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:var(--text-primary)">Subjek / Keperluan</label>
                             <select id="subjek" name="subjek" required style="width:100%;padding:14px;border:1px solid var(--surface-200);border-radius:12px;background:var(--surface-50);font-family:inherit;font-size:0.95rem;outline:none;transition:border 0.3s;appearance:none">
                                 <option value="" disabled selected>Pilih subjek...</option>
                                 <option value="Pertanyaan Umum">Pertanyaan Umum</option>
@@ -97,7 +97,7 @@
                             </select>
                         </div>
                         <div class="form-group" style="margin-bottom:30px">
-                            <label for="pesan" style="display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:var(--primary-900)">Pesan Anda</label>
+                            <label for="pesan" style="display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:var(--text-primary)">Pesan Anda</label>
                             <textarea id="pesan" name="pesan" required placeholder="Tuliskan pesan Anda dengan jelas di sini..." style="width:100%;padding:14px;border:1px solid var(--surface-200);border-radius:12px;background:var(--surface-50);font-family:inherit;font-size:0.95rem;outline:none;transition:border 0.3s;min-height:150px;resize:vertical"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width:100%;padding:16px;font-size:1.05rem;border-radius:50px;justify-content:center;font-weight:700">Kirim Pesan &rarr;</button>
@@ -121,3 +121,5 @@
     </iframe>
 </section>
 @endsection
+
+

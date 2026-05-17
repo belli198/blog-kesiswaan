@@ -26,7 +26,7 @@
 
         {{-- Share Buttons --}}
         <div style="margin-top:50px;padding-top:30px;border-top:1px solid var(--surface-100)" class="fade-up">
-            <p style="font-weight:700;margin-bottom:16px;color:var(--primary-900)">Bagikan Artikel Ini:</p>
+            <p style="font-weight:700;margin-bottom:16px;color:var(--text-primary)">Bagikan Artikel Ini:</p>
             <div style="display:flex;gap:12px">
                 <a href="https://wa.me/?text={{ urlencode(($berita->judul ?? 'Berita').' - '.url()->current()) }}" target="_blank" class="btn btn-sm" style="background:#25D366;color:#fff;border-radius:8px">WhatsApp</a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank" class="btn btn-sm" style="background:#1877F2;color:#fff;border-radius:8px">Facebook</a>
@@ -37,7 +37,7 @@
         {{-- Berita Terkait --}}
         @if(isset($beritaTerkait) && $beritaTerkait->count() > 0)
         <div style="margin-top:60px" class="fade-up">
-            <h2 style="margin-bottom:24px;font-size:1.8rem;color:var(--primary-900)">Berita Terkait</h2>
+            <h2 style="margin-bottom:24px;font-size:1.8rem;color:var(--text-primary)">Berita Terkait</h2>
             <div class="grid-2">
                 @foreach($beritaTerkait as $terkait)
                 <div class="card">
@@ -55,3 +55,5 @@
     </div>
 </section>
 @endsection
+
+

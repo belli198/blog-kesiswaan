@@ -20,4 +20,15 @@ class KaryaController extends Controller
 
         return view('karya.index', compact('karya', 'kategoris'));
     }
+
+    public function like($id)
+    {
+        $karya = Karya::findOrFail($id);
+        $karya->increment('likes');
+        
+        return response()->json([
+            'success' => true,
+            'likes' => $karya->likes
+        ]);
+    }
 }

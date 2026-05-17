@@ -20,6 +20,7 @@ Route::get('/pengumuman/{id}', [PengumumanController::class, 'show'])->name('pen
 Route::get('/ekstrakurikuler', [EkstrakurikulerController::class, 'index'])->name('ekskul');
 Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 Route::get('/karya', [KaryaController::class, 'index'])->name('karya');
+Route::post('/karya/{id}/like', [KaryaController::class, 'like'])->name('karya.like');
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri');
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 Route::post('/kontak', [KontakController::class, 'kirim'])->name('kontak.kirim');

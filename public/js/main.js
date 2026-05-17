@@ -161,3 +161,71 @@ if (!document.querySelector('#fade-keyframe')) {
     style.textContent = '@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}';
     document.head.appendChild(style);
 }
+
+// ===== DARK MODE =====
+const themeToggle = document.getElementById('theme-toggle');
+const iconSun = document.querySelector('.icon-sun');
+const iconMoon = document.querySelector('.icon-moon');
+
+// Check saved theme or system preference
+const savedTheme = localStorage.getItem('theme');
+const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    if (iconSun && iconMoon) {
+        iconSun.style.display = 'block';
+        iconMoon.style.display = 'none';
+    }
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+            if (iconSun && iconMoon) {
+                iconSun.style.display = 'none';
+                iconMoon.style.display = 'block';
+            }
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            if (iconSun && iconMoon) {
+                iconSun.style.display = 'block';
+                iconMoon.style.display = 'none';
+            }
+        }
+    });
+}
+
+// ===== PAGE TRANSITION =====
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('fade-in');
+    
+    const transitionEl = document.querySelector('.page-transition');
+    const links = document.querySelectorAll('a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])');
+    
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            // Check if it's the same page
+            if (link.hostname === window.location.hostname && link.pathname === window.location.pathname && link.search === window.location.search) {
+                return;
+            }
+            
+            e.preventDefault();
+            const target = link.href;
+            
+            if (transitionEl) {
+                transitionEl.classList.add('active');
+                setTimeout(() => {
+                    window.location.href = target;
+                }, 400); // Wait for transition
+            } else {
+                window.location.href = target;
+            }
+        });
+    });
+});
+

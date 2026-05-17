@@ -31,6 +31,10 @@ class BerandaController extends Controller
             $heroImages = [];
         }
 
+        $kegiatan = \App\Models\Kegiatan::whereDate('tanggal', '>=', date('Y-m-d'))->orderBy('tanggal')->take(4)->get();
+        $testimoni = \App\Models\Testimoni::where('is_active', true)->get();
+        $totalKarya = \App\Models\Karya::count();
+
         return view('beranda.index', compact(
             'beritaTerbaru',
             'pengumumanAktif',
@@ -39,7 +43,10 @@ class BerandaController extends Controller
             'totalEkskul',
             'totalPrestasi',
             'totalBerita',
-            'heroImages'
+            'totalKarya',
+            'heroImages',
+            'kegiatan',
+            'testimoni'
         ));
     }
 }
