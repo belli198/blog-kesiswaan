@@ -136,7 +136,7 @@
 @endif
 
 {{-- PROGRAM UNGGULAN SEKOLAH --}}
-<section class="section" style="background:var(--surface-0)">
+<section class="section" id="program-sekolah" style="background:var(--surface-0)">
     <div class="container">
         <div class="fade-up" style="margin-bottom:40px">
             <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">📋 Program</span>
@@ -155,13 +155,13 @@
             @endforelse
         </div>
         @if(isset($programSekolah) && $programSekolah->hasPages())
-        <div class="pagination-wrapper" style="margin-top:30px;display:flex;justify-content:center">{{ $programSekolah->withQueryString()->links() }}</div>
+        <div class="pagination-wrapper pagination-sm" style="margin-top:30px;display:flex;justify-content:center">{{ $programSekolah->withQueryString()->fragment('program-sekolah')->links() }}</div>
         @endif
     </div>
 </section>
 
 {{-- PENGHARGAAN SEKOLAH --}}
-<section class="section" style="background:var(--surface-50)">
+<section class="section" id="penghargaan-sekolah" style="background:var(--surface-50)">
     <div class="container">
         <div class="fade-up" style="margin-bottom:30px">
             <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">🏆 Penghargaan</span>
@@ -198,7 +198,7 @@
             @endforelse
         </div>
         @if(isset($penghargaan) && $penghargaan->hasPages())
-        <div class="pagination-wrapper" style="margin-top:30px;display:flex;justify-content:center">{{ $penghargaan->withQueryString()->links() }}</div>
+        <div class="pagination-wrapper pagination-sm" style="margin-top:30px;display:flex;justify-content:center">{{ $penghargaan->withQueryString()->fragment('penghargaan-sekolah')->links() }}</div>
         @endif
     </div>
 </section>
