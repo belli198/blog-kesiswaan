@@ -154,6 +154,9 @@
             <p style="grid-column:1/-1;text-align:center;color:var(--text-secondary)">Belum ada data program sekolah.</p>
             @endforelse
         </div>
+        @if(isset($programSekolah) && $programSekolah->hasPages())
+        <div class="pagination-wrapper" style="margin-top:30px;display:flex;justify-content:center">{{ $programSekolah->withQueryString()->links() }}</div>
+        @endif
     </div>
 </section>
 
@@ -194,6 +197,9 @@
             <p style="grid-column:1/-1;text-align:center;color:var(--text-secondary)">Belum ada data penghargaan.</p>
             @endforelse
         </div>
+        @if(isset($penghargaan) && $penghargaan->hasPages())
+        <div class="pagination-wrapper" style="margin-top:30px;display:flex;justify-content:center">{{ $penghargaan->withQueryString()->links() }}</div>
+        @endif
     </div>
 </section>
 
