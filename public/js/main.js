@@ -234,35 +234,55 @@ document.querySelectorAll('.mobile-carousel').forEach(carousel => {
     let isDown = false;
     let startX;
     let scrollLeft;
+    let velX = 0;
+    let momentumId = null;
+
+    function momentum() {
+        if (Math.abs(velX) > 0.5) {
+            carousel.scrollLeft -= velX;
+            velX *= 0.92; // friction
+            momentumId = requestAnimationFrame(momentum);
+        }
+    }
 
     carousel.addEventListener('mousedown', (e) => {
-        // Ignore if clicking on a link or button
         if (e.target.closest('a, button')) return;
         isDown = true;
+        cancelAnimationFrame(momentumId);
         carousel.style.cursor = 'grabbing';
-        startX = e.pageX - carousel.offsetLeft;
+        carousel.style.scrollSnapType = 'none';
+        startX = e.pageX;
         scrollLeft = carousel.scrollLeft;
+        velX = 0;
         e.preventDefault();
     });
 
     carousel.addEventListener('mouseleave', () => {
+        if (!isDown) return;
         isDown = false;
         carousel.style.cursor = 'grab';
+        carousel.style.scrollSnapType = '';
+        momentumId = requestAnimationFrame(momentum);
     });
 
     carousel.addEventListener('mouseup', () => {
+        if (!isDown) return;
         isDown = false;
         carousel.style.cursor = 'grab';
+        carousel.style.scrollSnapType = '';
+        momentumId = requestAnimationFrame(momentum);
     });
 
     carousel.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
-        const x = e.pageX - carousel.offsetLeft;
-        const walk = (x - startX) * 2;
-        carousel.scrollLeft = scrollLeft - walk;
+        const x = e.pageX;
+        const dx = x - startX;
+        velX = dx;
+        startX = x;
+        carousel.scrollLeft = scrollLeft - dx;
+        scrollLeft = carousel.scrollLeft;
     });
 
-    // Show grab cursor by default
     carousel.style.cursor = 'grab';
 });
