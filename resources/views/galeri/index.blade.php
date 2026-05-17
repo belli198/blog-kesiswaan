@@ -13,12 +13,9 @@
 <section class="section">
     <div class="container">
         <div class="filter-tabs fade-up" style="display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap;justify-content:center">
-            <button class="filter-tab active" data-filter="Semua">Semua Foto</button>
-            <button class="filter-tab" data-filter="MOS/MPLS">MOS/MPLS</button>
-            <button class="filter-tab" data-filter="17-an">Lomba 17-an</button>
-            <button class="filter-tab" data-filter="Class Meeting">Class Meeting</button>
-            <button class="filter-tab" data-filter="Study Tour">Study Tour</button>
-            <button class="filter-tab" data-filter="Ekskul">Kegiatan Ekskul</button>
+            @foreach($kategoris ?? ['Semua', 'Upacara', 'Lomba', 'Ekskul', 'Kunjungan', 'Kegiatan'] as $kat)
+            <a href="{{ route('galeri', ['kategori' => $kat]) }}" class="filter-tab {{ (request('kategori', 'Semua') == $kat) ? 'active' : '' }}">{{ $kat }}</a>
+            @endforeach
         </div>
 
         <div class="gallery-grid fade-up mobile-carousel">
@@ -40,6 +37,10 @@
             </div>
             @endforelse
         </div>
+
+        @if(isset($galeri) && $galeri->hasPages())
+        <div class="pagination-wrapper">{{ $galeri->links() }}</div>
+        @endif
     </div>
 </section>
 
@@ -51,39 +52,6 @@
     <div class="lightbox-nav lightbox-next">❯</div>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const filterBtns = document.querySelectorAll('.filter-tab');
-    const cards = document.querySelectorAll('.gallery-item');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button styles
-            filterBtns.forEach(b => {
-                b.classList.remove('active');
-                
-                
-                
-            });
-            btn.classList.add('active');
-            
-            
-            
-
-            // Filter cards
-            const filter = btn.getAttribute('data-filter');
-            cards.forEach(card => {
-                if(filter === 'Semua' || card.getAttribute('data-category') === filter) {
-                    card.style.display = '';
-                    card.style.animation = 'fadeIn .4s ease';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-});
-</script>
 @endsection
 
 

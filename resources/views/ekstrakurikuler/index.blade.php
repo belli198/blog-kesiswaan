@@ -45,6 +45,10 @@
             </div>
             @endforelse
         </div>
+
+        @if(isset($ekskul) && $ekskul->hasPages())
+        <div class="pagination-wrapper">{{ $ekskul->links() }}</div>
+        @endif
     </div>
 </section>
 

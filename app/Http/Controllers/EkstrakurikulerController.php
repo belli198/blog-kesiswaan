@@ -15,7 +15,7 @@ class EkstrakurikulerController extends Controller
             $query->where('kategori', $request->kategori);
         }
 
-        $ekskul = $query->get();
+        $ekskul = $query->paginate(12);
         $kategoris = ['Semua', 'Olahraga', 'Seni', 'Akademik', 'Teknologi', 'Keagamaan'];
 
         return view('ekstrakurikuler.index', compact('ekskul', 'kategoris'));

@@ -274,7 +274,7 @@
                 </div>
                 @endforelse
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="testimoni-pagination"></div>
         </div>
     </div>
 </section>
@@ -347,7 +347,7 @@
                 disableOnInteraction: false,
             },
             pagination: {
-                el: '.swiper-pagination',
+                el: '.testimoni-pagination',
                 clickable: true,
             },
             breakpoints: {

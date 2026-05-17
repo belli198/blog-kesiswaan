@@ -62,9 +62,9 @@
             @endforelse
         </div>
         
-        <div style="margin-top:40px">
-            {{ $karya->links('pagination::bootstrap-4') }}
-        </div>
+        @if($karya->hasPages())
+        <div class="pagination-wrapper">{{ $karya->links() }}</div>
+        @endif
     </div>
 </section>
 @endsection
