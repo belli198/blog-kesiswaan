@@ -21,7 +21,7 @@
             <button class="filter-tab" data-filter="Ekskul">Kegiatan Ekskul</button>
         </div>
 
-        <div class="gallery-grid fade-up">
+        <div class="gallery-grid fade-up mobile-carousel">
             @forelse($galeri ?? [] as $item)
             <div class="gallery-item" data-category="{{ $item->kategori }}">
                 <img src="{{ Storage::disk('cloudinary')->url($item->gambar) }}" alt="{{ $item->judul }}">

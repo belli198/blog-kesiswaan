@@ -25,7 +25,7 @@
             @endforeach
         </div>
 
-        <div class="grid-3">
+        <div class="grid-3 mobile-carousel">
             @forelse($berita ?? [] as $item)
             <div class="card fade-up">
                 <img src="{{ $item->gambar ? Storage::disk('cloudinary')->url($item->gambar) : 'https://placehold.co/600x400/1B3A6B/white?text='.urlencode(Str::limit($item->judul,20)) }}" alt="{{ $item->judul }}" class="card-img">

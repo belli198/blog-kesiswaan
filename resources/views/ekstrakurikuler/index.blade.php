@@ -18,7 +18,7 @@
             @endforeach
         </div>
 
-        <div class="grid-3">
+        <div class="grid-3 mobile-carousel">
             @php $colors = ['var(--primary-600)', 'var(--accent)', 'var(--success)', '#8B5CF6', '#EC4899', '#14B8A6']; @endphp
             @forelse($ekskul ?? [] as $index => $item)
             <div class="card ekskul-card fade-up" style="padding:30px;border-top:4px solid {{ $colors[$index % count($colors)] }}">
@@ -48,12 +48,12 @@
     </div>
 </section>
 
-<section class="section live-bg" style="margin:40px 20px;border-radius:30px;padding:80px 0">
+<section class="section live-bg" style="margin:40px 20px;border-radius:30px;padding:clamp(40px, 8vw, 80px) 0">
     <div class="container text-center fade-up">
         <span class="badge" style="background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);margin-bottom:16px">🏆 Prestasi</span>
         <h2 style="color:white;margin-bottom:20px;font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Prestasi Ekstrakurikuler</h2>
         <p style="color:rgba(255,255,255,0.7);max-width:700px;margin:0 auto 50px;font-size:1.05rem">Ekstrakurikuler SMK Negeri 1 Adiwerna secara rutin menyumbangkan prestasi gemilang di berbagai tingkat kompetisi.</p>
-        <div class="grid-3" style="text-align:left">
+        <div class="grid-3 mobile-carousel" style="text-align:left">
             <div style="padding:30px;background:rgba(255,255,255,0.05);border-radius:20px;border:1px solid rgba(255,255,255,0.1)">
                 <div style="font-size:2.5rem;margin-bottom:20px">🏆</div>
                 <h4 style="margin-bottom:10px;color:var(--accent-light);font-size:1.15rem">Juara 1 Futsal</h4>

@@ -13,25 +13,25 @@
 {{-- HIGHLIGHT --}}
 <section class="section">
     <div class="container fade-up">
-        <div class="live-bg" style="border-radius:30px;padding:50px;box-shadow:0 20px 40px rgba(0,0,0,0.1)">
-            <div class="grid-2" style="align-items:center;gap:50px">
+        <div class="live-bg" style="border-radius:30px;padding:clamp(25px, 5vw, 50px);box-shadow:0 20px 40px rgba(0,0,0,0.1);margin:0">
+            <div class="grid-2" style="align-items:center;gap:clamp(30px, 5vw, 50px)">
                 <div>
-                    <span class="badge" style="background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);margin-bottom:16px">🌟 Siswa Berprestasi Terbaik 2025</span>
+                    <span class="badge" style="background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);margin-bottom:16px;display:inline-block;white-space:normal;line-height:1.4">🌟 Siswa Berprestasi Terbaik 2025</span>
                     <h2 style="font-size:clamp(2rem, 4vw, 2.5rem);margin-bottom:20px;color:#fff">Dinda Rahmawati</h2>
                     <p style="color:rgba(255,255,255,0.8);margin-bottom:30px;font-size:1.05rem;line-height:1.7">Meraih Medali Emas Olimpiade Sains Nasional (OSN) Bidang Komputer Tingkat Nasional dan mewakili Indonesia di ajang Internasional.</p>
-                    <div style="display:flex;gap:20px">
-                        <div style="background:rgba(0,0,0,0.2);padding:15px 25px;border-radius:16px;border:1px solid rgba(255,255,255,0.05)">
+                    <div style="display:flex;gap:15px;flex-wrap:wrap">
+                        <div style="background:rgba(0,0,0,0.2);padding:15px 25px;border-radius:16px;border:1px solid rgba(255,255,255,0.05);flex:1;min-width:120px">
                             <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin-bottom:5px">Kelas</div>
                             <div style="font-weight:700;font-size:1.1rem">XII RPL 1</div>
                         </div>
-                        <div style="background:rgba(0,0,0,0.2);padding:15px 25px;border-radius:16px;border:1px solid rgba(255,255,255,0.05)">
+                        <div style="background:rgba(0,0,0,0.2);padding:15px 25px;border-radius:16px;border:1px solid rgba(255,255,255,0.05);flex:1;min-width:120px">
                             <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin-bottom:5px">Kategori</div>
                             <div style="font-weight:700;font-size:1.1rem">Akademik</div>
                         </div>
                     </div>
                 </div>
-                <div style="text-align:right">
-                    <img src="https://placehold.co/600x600/1E3A8A/white?text=Dinda+Rahma" alt="Dinda Rahmawati" style="border-radius:24px;box-shadow:0 15px 35px rgba(0,0,0,0.2);width:100%;max-width:400px;display:inline-block">
+                <div style="text-align:center">
+                    <img src="https://placehold.co/600x600/1E3A8A/white?text=Dinda+Rahma" alt="Dinda Rahmawati" style="border-radius:24px;box-shadow:0 15px 35px rgba(0,0,0,0.2);width:100%;max-width:350px;display:inline-block">
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
             @endforeach
         </div>
 
-        <div class="grid-2">
+        <div class="grid-2 mobile-carousel">
             @forelse($prestasi ?? [] as $item)
             <div class="card fade-up" style="padding:24px;display:flex;gap:20px;align-items:flex-start">
                 <div class="trophy {{ $item->tingkat == 'Nasional' || $item->tingkat == 'Internasional' ? 'trophy-gold' : ($item->tingkat == 'Provinsi' ? 'trophy-silver' : 'trophy-bronze') }}" style="width:60px;height:60px;font-size:1.8rem">

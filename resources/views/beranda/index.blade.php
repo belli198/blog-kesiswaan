@@ -96,7 +96,7 @@
             </div>
             <a href="{{ route('berita.index') }}" style="color:var(--text-primary);font-weight:600;display:flex;align-items:center;gap:5px;font-size:0.95rem" class="hover-accent">Lihat Semua &rarr;</a>
         </div>
-        <div class="grid-3">
+        <div class="grid-3 mobile-carousel">
             @forelse($beritaTerbaru ?? [] as $item)
             <div class="card fade-up" style="border:none;box-shadow:0 10px 30px rgba(0,0,0,0.05);border-radius:24px">
                 <img src="{{ $item->gambar ? Storage::disk('cloudinary')->url($item->gambar) : 'https://placehold.co/600x400/1B3A6B/white?text='.urlencode($item->judul) }}" alt="{{ $item->judul }}" class="card-img" style="height:240px;border-radius:24px 24px 0 0">
@@ -144,7 +144,7 @@
             </div>
             <a href="{{ route('ekskul') }}" style="color:var(--text-primary);font-weight:600;display:flex;align-items:center;gap:5px;font-size:0.95rem" class="hover-accent">Semua Ekskul &rarr;</a>
         </div>
-        <div class="grid-4">
+        <div class="grid-4 mobile-carousel">
             @php $ekskulList = \App\Models\Ekstrakurikuler::where('is_active', true)->take(4)->get(); @endphp
             @forelse($ekskulList as $e)
             <div class="card ekskul-card fade-up" style="background:var(--surface-0);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.03)">
@@ -209,7 +209,7 @@
             <div class="line"></div>
             <p>Jadwal kegiatan kesiswaan terdekat yang akan diselenggarakan.</p>
         </div>
-        <div class="grid-2 fade-up">
+        <div class="grid-2 fade-up mobile-carousel">
             @forelse($kegiatan ?? [] as $agenda)
             <div class="card" style="display:flex;padding:24px;gap:20px;align-items:center;border-left:4px solid var(--{{ $agenda->warna ?? 'primary-500' }})">
                 <div style="text-align:center;background:var(--surface-50);padding:15px;border-radius:16px;min-width:90px">
@@ -285,7 +285,7 @@
         <h2 style="margin-bottom:15px;color:var(--text-primary)">📷 Instagram @osis.smkn1adw</h2>
         <p style="color:var(--text-secondary);margin-bottom:40px">Ikuti keseruan kegiatan kami di Instagram resmi OSIS.</p>
         
-        <div class="grid-4" style="gap:15px">
+        <div class="grid-4 mobile-carousel" style="gap:15px">
             <a href="https://instagram.com" target="_blank" class="card" style="border-radius:12px;aspect-ratio:1/1;display:block;position:relative;overflow:hidden">
                 <img src="https://placehold.co/400x400/1B3A6B/white?text=IG+Post+1" alt="IG Post" style="width:100%;height:100%;object-fit:cover">
                 <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:var(--transition)" class="ig-overlay">

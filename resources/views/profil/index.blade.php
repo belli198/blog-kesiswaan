@@ -54,7 +54,7 @@
             <h2 style="margin:0;color:var(--text-primary);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Struktur Anggota Kesiswaan</h2>
             <p style="margin-top:12px;color:var(--text-secondary)">Guru dan Staf Pembina Bidang Kesiswaan</p>
         </div>
-        <div class="grid-4">
+        <div class="grid-4 mobile-carousel">
             @forelse($kesiswaan ?? [] as $k)
             <div class="org-card fade-up">
                 @if($k->foto)
@@ -80,7 +80,7 @@
             <h2 style="margin:0;color:var(--text-primary);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Struktur Organisasi OSIS</h2>
             <p style="margin-top:12px;color:var(--text-secondary)">Pengurus OSIS Masa Bakti Saat Ini</p>
         </div>
-        <div class="grid-4">
+        <div class="grid-4 mobile-carousel">
             @forelse($osis ?? [] as $o)
             <div class="org-card fade-up">
                 @if($o->foto)
@@ -142,7 +142,7 @@
             <span class="badge badge-gray" style="margin-bottom:12px;display:inline-flex;align-items:center;gap:6px">📋 Program</span>
             <h2 style="margin:0;color:var(--text-primary);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Program Unggulan Sekolah</h2>
         </div>
-        <div class="grid-3">
+        <div class="grid-3 mobile-carousel">
             @forelse($programSekolah ?? [] as $index => $prog)
             @php $colors = ['var(--primary-600)', 'var(--accent)', 'var(--success)', '#8B5CF6', '#EC4899', '#14B8A6']; @endphp
             <div class="fade-up" style="background:var(--surface-0);padding:30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.03);border-top:4px solid {{ $colors[$index % count($colors)] }};border-left:1px solid var(--surface-100);border-right:1px solid var(--surface-100);border-bottom:1px solid var(--surface-100)">
@@ -172,7 +172,7 @@
             <button class="filter-tab" data-filter="Kabupaten">Kabupaten</button>
         </div>
 
-        <div class="grid-3" id="penghargaan-grid">
+        <div class="grid-3 mobile-carousel" id="penghargaan-grid">
             @forelse($penghargaan ?? [] as $p)
             <div class="prestasi-card fade-up" data-tingkat="{{ $p->tingkat }}" style="background:var(--surface-0);padding:25px;border-radius:15px;box-shadow:var(--shadow-md);display:flex;flex-direction:column;gap:15px;transition:transform 0.3s">
                 <div style="display:flex;justify-content:space-between;align-items:flex-start">
