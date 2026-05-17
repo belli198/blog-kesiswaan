@@ -54,7 +54,7 @@
             <h2 style="margin:0;color:var(--text-primary);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Struktur Anggota Kesiswaan</h2>
             <p style="margin-top:12px;color:var(--text-secondary)">Guru dan Staf Pembina Bidang Kesiswaan</p>
         </div>
-        <div class="grid-4">
+        <div class="grid-4 grid-4-fixed">
             @forelse($kesiswaan ?? [] as $k)
             <div class="org-card fade-up">
                 @if($k->foto)
@@ -83,7 +83,7 @@
             <h2 style="margin:0;color:var(--text-primary);font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em">Struktur Organisasi OSIS</h2>
             <p style="margin-top:12px;color:var(--text-secondary)">Pengurus OSIS Masa Bakti Saat Ini</p>
         </div>
-        <div class="grid-4">
+        <div class="grid-4 grid-4-fixed">
             @forelse($osis ?? [] as $o)
             <div class="org-card fade-up">
                 @if($o->foto)
