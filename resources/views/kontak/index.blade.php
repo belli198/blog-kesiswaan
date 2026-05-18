@@ -18,7 +18,7 @@
                 <span class="badge badge-gray" style="margin-bottom:16px;display:inline-flex;align-items:center;gap:6px">👋 Sapa Kami</span>
                 <h2 style="margin-bottom:20px;font-size:clamp(1.8rem, 4vw, 2.5rem);letter-spacing:-0.03em;color:var(--text-primary)">Tentang Blog Kesiswaan</h2>
                 <p style="color:var(--text-secondary);margin-bottom:15px;line-height:1.8;font-size:1.05rem">Blog ini dikelola secara resmi oleh pengurus OSIS dan Tim Jurnalistik SMK Negeri 1 Adiwerna. Tujuan utama pembuatan blog ini adalah untuk memberikan transparansi informasi terkait program kesiswaan, mendokumentasikan setiap momen penting di sekolah, serta menyediakan ruang pameran maya bagi karya dan prestasi siswa.</p>
-                <p style="color:var(--text-secondary);margin-bottom:40px;line-height:1.8;font-size:1.05rem">Tim redaksi kami terdiri dari perwakilan siswa dari berbagai jurusan yang memiliki minat di bidang penulisan, fotografi, dan desain web.</p>
+                <p class="hide-on-mobile" style="color:var(--text-secondary);margin-bottom:40px;line-height:1.8;font-size:1.05rem">Tim redaksi kami terdiri dari perwakilan siswa dari berbagai jurusan yang memiliki minat di bidang penulisan, fotografi, dan desain web.</p>
                 
                 <h3 style="margin-bottom:25px;font-size:1.4rem;color:var(--text-primary)">Informasi Kontak</h3>
                 <div class="contact-info" style="display:flex;flex-direction:column;gap:20px;margin-bottom:40px">

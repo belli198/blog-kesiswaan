@@ -60,10 +60,66 @@
         @yield('content')
     </main>
 
-    {{-- FOOTER --}}
+    {{-- WAVE DIVIDER --}}
+    <div class="footer-wave">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.6,188.75,109.8,235.27,105.07,279.79,84.14,321.39,56.44Z" fill="currentColor"></path>
+        </svg>
+    </div>
+
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
+                {{-- Column 1: About --}}
+                <div>
+                    <div class="footer-brand">
+                        <img src="{{ asset('images/logo-smk.png') }}" alt="Logo">
+                        <span>{{ $siteName }}</span>
+                    </div>
+                    <p class="footer-desc">Media informasi resmi bidang kesiswaan SMK Negeri 1 Adiwerna. Menyajikan berita, pengumuman, prestasi, dan kegiatan siswa.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
+                        <a href="https://youtube.com" target="_blank" title="YouTube">▶️</a>
+                        <a href="https://facebook.com" target="_blank" title="Facebook">📘</a>
+                        <a href="https://tiktok.com" target="_blank" title="TikTok">🎵</a>
+                    </div>
+                </div>
+
+                {{-- Column 2: Quick Links --}}
+                <div>
+                    <h4>Link Cepat</h4>
+                    <div class="footer-links">
+                        <a href="{{ route('beranda') }}">Beranda</a>
+                        <a href="{{ route('berita.index') }}">Berita</a>
+                        <a href="{{ route('pengumuman') }}">Pengumuman</a>
+                        <a href="{{ route('ekskul') }}">Ekstrakurikuler</a>
+                        <a href="{{ route('prestasi') }}">Prestasi</a>
+                        <a href="{{ route('galeri') }}">Galeri</a>
+                    </div>
+                </div>
+
+                {{-- Column 3: Contact --}}
+                <div>
+                    <h4>Kontak</h4>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">
+                            <span>📍</span>
+                            <span>Jl. Raya Adiwerna No. 1, Kab. Tegal, Jawa Tengah</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span>📞</span>
+                            <span>(0283) 441340</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span>✉️</span>
+                            <span>kesiswaan@smkn1adiwerna.sch.id</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Bottom Bar --}}
+            <div class="footer-bottom">
                 <div>&copy; {{ date('Y') }} Blog Kesiswaan <strong>SMKN 1 Adiwerna</strong></div>
                 <div>Made with 💖 by <a href="{{ route('profil') }}">Tim Kesiswaan</a></div>
             </div>
@@ -74,6 +130,7 @@
     <button class="back-to-top" title="Kembali ke atas">↑</button>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="{{ asset('js/main.js') }}?v={{ time() }}"></script>
     <script>
         AOS.init({

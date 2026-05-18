@@ -22,12 +22,19 @@
 @endsection
 
 @section('content')
-{{-- HERO --}}
-<section class="hero">
-    <div class="container">
+    {{-- HERO SECTION --}}
+    <section class="hero" id="beranda" style="position:relative; overflow:hidden;">
+        {{-- AMBIENT BLOBS --}}
+        <div class="ambient-blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        
+        <div class="container" style="position:relative; z-index:2;">
         <div class="grid-2" style="align-items:center;gap:50px">
             <div class="hero-content fade-up" style="text-align:left;padding:0">
-                <div class="hero-badge">✨ Selamat Datang</div>
+                <div class="hero-badge" id="dynamic-greeting">✨ Selamat Datang</div>
                 <h1 style="font-size:clamp(2.5rem,5.5vw,3.8rem)">Blog Resmi<br>Kesiswaan<br><span class="gradient-text">SMK N 1 Adiwerna</span></h1>
                 <p style="max-width:100%">Pusat informasi kegiatan, prestasi, dan program kesiswaan SMK Negeri 1 Adiwerna, Kabupaten Tegal.</p>
                 <div class="hero-buttons">
@@ -38,29 +45,92 @@
 
             <div class="fade-up">
                 <div class="stats-sidebar">
-                    <h3>Statistik Sekolah</h3>
-                    <div class="stat-item">
-                        <div class="stat-value"><i data-count="1800" style="font-style:normal">0</i>+<span>Siswa Aktif</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value"><i data-count="{{ $totalEkskul ?? 24 }}" style="font-style:normal">0</i><span>Ekstrakurikuler</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value"><i data-count="{{ $totalPrestasi ?? 120 }}" style="font-style:normal">0</i>+<span>Penghargaan</span></div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value"><i data-count="{{ $totalKarya ?? 50 }}" style="font-style:normal">0</i>+<span>Karya Siswa</span></div>
+                    <h3 class="stats-title"><span class="stats-title-icon">📊</span> Statistik Sekolah</h3>
+                    <div class="stats-grid-wrapper">
+                        {{-- Stat Item 1 --}}
+                        <div class="stat-card blue" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="stat-card__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                                </svg>
+                            </div>
+                            <div class="stat-card__number"><span class="counter" data-target="2500">0</span>+</div>
+                            <div class="stat-card__label">Siswa Aktif</div>
+                        </div>
+
+                        {{-- Stat Item 2 --}}
+                        <div class="stat-card gold" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="stat-card__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
+                                </svg>
+                            </div>
+                            <div class="stat-card__number"><span class="counter" data-target="{{ $totalPrestasi ?? 120 }}">0</span>+</div>
+                            <div class="stat-card__label">Prestasi</div>
+                        </div>
+
+                        {{-- Stat Item 3 --}}
+                        <div class="stat-card green" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="stat-card__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                </svg>
+                            </div>
+                            <div class="stat-card__number"><span class="counter" data-target="{{ $totalEkskul ?? 24 }}">0</span></div>
+                            <div class="stat-card__label">Ekstrakurikuler</div>
+                        </div>
+
+                        {{-- Stat Item 4 --}}
+                        <div class="stat-card purple" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="stat-card__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.89 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.89l12.683-12.683zm0 0L19.5 7.125" />
+                                </svg>
+                            </div>
+                            <div class="stat-card__number"><span class="counter" data-target="{{ $totalKarya ?? 50 }}">0</span>+</div>
+                            <div class="stat-card__label">Karya Siswa</div>
+                        </div>
                     </div>
                     
-                    <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:0.85rem;line-height:1.6;color:rgba(255,255,255,.8)">
-                        <span style="font-size:1rem;margin-right:5px">🏆</span> <strong style="color:var(--accent-light)">Terbaru:</strong> 
-                        {{ $beritaTerbaru?->first()?->judul ?? 'Juara 1 LKS Nasional Bidang IT - Tim SMKN 1 Adiwerna 2024' }}
+                    <div class="stats-terbaru">
+                        <span class="stats-terbaru__icon">🏆</span>
+                        <div class="stats-terbaru__text">
+                            <strong>Terbaru:</strong> 
+                            {{ $beritaTerbaru?->first()?->judul ?? 'Juara 1 LKS Nasional Bidang IT - Tim SMKN 1 Adiwerna 2024' }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{{-- MARQUEE RUNNING TEXT --}}
+<div class="marquee-wrapper">
+    <div class="marquee-track">
+        <div class="marquee-content">
+            <span>✦ SMK BISA</span>
+            <span>✦ SMK HEBAT</span>
+            <span>✦ SIAP KERJA</span>
+            <span>✦ CERDAS BERKARAKTER</span>
+            <span>✦ BERPRESTASI</span>
+            <span>✦ INOVATIF</span>
+            <span>✦ KREATIF</span>
+            <span>✦ BERAKHLAK MULIA</span>
+            
+            {{-- Clone for seamless loop --}}
+            <span aria-hidden="true">✦ SMK BISA</span>
+            <span aria-hidden="true">✦ SMK HEBAT</span>
+            <span aria-hidden="true">✦ SIAP KERJA</span>
+            <span aria-hidden="true">✦ CERDAS BERKARAKTER</span>
+            <span aria-hidden="true">✦ BERPRESTASI</span>
+            <span aria-hidden="true">✦ INOVATIF</span>
+            <span aria-hidden="true">✦ KREATIF</span>
+            <span aria-hidden="true">✦ BERAKHLAK MULIA</span>
+        </div>
+    </div>
+</div>
 
 {{-- SAMBUTAN --}}
 <section class="section">
@@ -96,9 +166,9 @@
             </div>
             <a href="{{ route('berita.index') }}" style="color:var(--text-primary);font-weight:600;display:flex;align-items:center;gap:5px;font-size:0.95rem" class="hover-accent">Lihat Semua &rarr;</a>
         </div>
-        <div class="grid-3 mobile-carousel">
+        <div class="bento-grid mobile-carousel">
             @forelse($beritaTerbaru ?? [] as $item)
-            <div class="card fade-up" style="border:none;box-shadow:0 10px 30px rgba(0,0,0,0.05);border-radius:24px">
+            <div class="card news-card {{ $loop->first ? 'featured-news' : '' }} fade-up" style="border:none;box-shadow:0 10px 30px rgba(0,0,0,0.05);border-radius:24px">
                 <img src="{{ $item->gambar ? Storage::disk('cloudinary')->url($item->gambar) : 'https://placehold.co/600x400/1B3A6B/white?text='.urlencode($item->judul) }}" alt="{{ $item->judul }}" class="card-img" style="height:240px;border-radius:24px 24px 0 0">
                 <div class="card-body" style="padding:24px 30px">
                     <span style="font-size:0.75rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">{{ $item->kategori }}</span>
@@ -114,7 +184,7 @@
             </div>
             @empty
             @for($i = 0; $i < 3; $i++)
-            <div class="card fade-up" style="border:none;box-shadow:0 10px 30px rgba(0,0,0,0.05);border-radius:24px">
+            <div class="card news-card {{ $i === 0 ? 'featured-news' : '' }} fade-up" style="border:none;box-shadow:0 10px 30px rgba(0,0,0,0.05);border-radius:24px">
                 <img src="https://placehold.co/600x400/{{ ['1B3A6B','F59E0B','10B981'][$i] }}/white?text=Berita+{{ $i+1 }}" alt="Berita" class="card-img" style="height:240px;border-radius:24px 24px 0 0">
                 <div class="card-body" style="padding:24px 30px">
                     <span style="font-size:0.75rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">{{ ['PRESTASI','KEGIATAN','EKSKUL'][$i] }}</span>
@@ -180,17 +250,19 @@
         </div>
         <div style="display:flex;flex-direction:column;gap:16px">
             @forelse($pengumumanAktif ?? [] as $item)
-            <div class="announce-card fade-up" style="border-left:none;border-radius:20px;padding:30px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,0.03);position:relative">
+            <a href="{{ route('pengumuman.show', $item->id) }}" class="announce-card fade-up" style="border-left:none;border-radius:20px;padding:30px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,0.03);position:relative;display:flex;text-decoration:none;transition:var(--transition)">
                 <div class="announce-date" style="border-right:1px solid var(--surface-200);padding-right:30px;min-width:100px">
                     <div class="day" style="font-size:2.2rem;color:var(--text-primary)">{{ $item->created_at->format('d') }}</div>
                     <div class="month">{{ $item->created_at->format('M') }}</div>
                 </div>
-                <div class="announce-content" style="padding-left:10px">
-                    <span class="badge" style="background:var(--surface-50);color:{{ $item->prioritas === 'tinggi' ? 'var(--danger)' : ($item->prioritas === 'sedang' ? 'var(--warning)' : 'var(--primary-500)') }};font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">{{ ucfirst($item->prioritas) }}</span>
+                <div class="announce-content" style="padding-left:10px;flex:1">
+                    <span class="badge" style="background:var(--surface-50);color:{{ $item->prioritas == '1' ? 'var(--primary-500)' : ($item->prioritas == '2' ? 'var(--warning)' : 'var(--danger)') }};font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">
+                        {{ $item->prioritas == '1' ? 'Biasa' : ($item->prioritas == '2' ? 'Sedang' : 'Tinggi') }}
+                    </span>
                     <h3 style="color:var(--text-primary);font-size:1.15rem;margin-bottom:0">{{ $item->judul }}</h3>
                 </div>
-                <div style="color:var(--text-light);font-size:1.5rem">&rsaquo;</div>
-            </div>
+                <div style="color:var(--text-light);font-size:1.5rem;transition:transform 0.3s" class="arrow-icon">&rsaquo;</div>
+            </a>
             @empty
             <div style="text-align:center;padding:40px;background:var(--surface-0);border-radius:20px;border:1px dashed var(--surface-200)">
                 <p style="color:var(--text-secondary);margin:0">Belum ada pengumuman.</p>

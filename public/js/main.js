@@ -64,13 +64,13 @@ function animateCounters() {
         }, 16);
     });
 }
-const counterSection = document.querySelector('.hero-stats, .stats-section');
+const counterSection = document.querySelector('.stats-sidebar, .hero-stats, .stats-section');
 if (counterSection) {
     const cObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) { animateCounters(); cObserver.unobserve(entry.target); }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
     cObserver.observe(counterSection);
 }
 
@@ -227,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
 });
 
 // ===== DRAG-TO-SCROLL FOR MOUSE ON CAROUSELS =====
@@ -285,4 +286,100 @@ document.querySelectorAll('.mobile-carousel').forEach(carousel => {
     });
 
     carousel.style.cursor = 'grab';
+});
+
+// ===== DYNAMIC GREETING =====
+document.addEventListener('DOMContentLoaded', () => {
+    const greetingEl = document.getElementById('dynamic-greeting');
+    if (greetingEl) {
+        const hour = new Date().getHours();
+        let greeting = '✨ Selamat Datang';
+        
+        if (hour >= 5 && hour < 12) {
+            greeting = '🌅 Selamat Pagi';
+        } else if (hour >= 12 && hour < 15) {
+            greeting = '☀️ Selamat Siang';
+        } else if (hour >= 15 && hour < 18) {
+            greeting = '🌇 Selamat Sore';
+        } else if (hour >= 18 || hour < 5) {
+            greeting = '🌙 Selamat Malam';
+        }
+        
+        greetingEl.textContent = greeting;
+    }
+    
+    // ===== VANILLA TILT INIT =====
+    if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll(".stat-card"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+            scale: 1.05
+        });
+        
+        VanillaTilt.init(document.querySelectorAll(".news-card"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.1,
+            scale: 1.02
+        });
+    }
+
+    // ===== NUMBER COUNTER ANIMATION =====
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200; // The lower the slower
+    
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            // Trigger animation when scrolled into view using IntersectionObserver
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        updateCount();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(counter);
+        });
+    };
+    
+    if (counters.length > 0) {
+        animateCounters();
+    }
+
+    // ===== BACK TO TOP BUTTON =====
+    const backToTopBtn = document.querySelector('.back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
